@@ -1,0 +1,172 @@
+/* App-only screens. Browser rc15 layout and themes keep their existing rules. */
+:root[data-android-app="true"] .shell {
+  padding: 0 18px;
+}
+:root[data-android-app="true"] header {
+  padding-block: 14px;
+}
+:root[data-android-app="true"] .brand .edition,
+:root[data-android-app="true"] #notebook-open,
+:root[data-android-app="true"] #journey {
+  display: none;
+}
+:root[data-android-app="true"] .hero {
+  margin-block: 14px 24px;
+}
+:root[data-android-app="true"] .hero h1 {
+  font-size: clamp(44px, 13vw, 68px);
+}
+:root[data-android-app="true"][data-app-section="explore"] #result,
+:root[data-android-app="true"][data-app-section="explore"] #android-empty-trip,
+:root[data-android-app="true"][data-app-section="explore"] #active-trip {
+  display: none;
+}
+:root[data-android-app="true"][data-app-section="trip"]
+  #main
+  > :not(
+    #result,
+    #active-trip,
+    #android-empty-trip,
+    #android-draft-recovery,
+    #home-draft
+  ),
+:root[data-android-app="true"][data-app-section="trip"] footer,
+:root[data-android-app="true"][data-app-section="notebook"] .shell {
+  display: none;
+}
+:root[data-android-app="true"][data-app-section="trip"] #android-empty-trip {
+  margin-block: 48px;
+}
+:root[data-android-app="true"][data-app-section="trip"]
+  #main:has(#result:not([hidden]), #active-trip:not([hidden]))
+  #android-empty-trip {
+  display: none;
+}
+:root[data-android-app="true"] #notebook[open] {
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  box-sizing: border-box;
+  overflow: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 24px 20px 32px;
+  background: var(--paper);
+  transform: none;
+  opacity: 1;
+}
+:root[data-android-app="true"] #result {
+  margin-top: 16px;
+}
+:root[data-android-app="true"] #android-draft-recovery button {
+  margin: 6px 8px 6px 0;
+}
+
+:root[data-android-app="true"] #android-file-receipt:not([hidden]) {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 2147483647;
+  padding: 12px 18px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 5px 18px #0002;
+  max-height: 35vh;
+  overflow: auto;
+}
+:root[data-android-app="true"] #android-file-receipt p {
+  margin: 0 0 8px;
+}
+
+:root[data-android-app="true"] button,
+:root[data-android-app="true"] select,
+:root[data-android-app="true"] input:not([type="checkbox"], [type="radio"]) {
+  min-height: 48px;
+  touch-action: manipulation;
+}
+:root[data-android-app="true"] button {
+  -webkit-tap-highlight-color: transparent;
+}
+:root[data-android-app="true"] :focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+:root[data-android-app="true"] #discovery-editor .editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+:root[data-android-app="true"] #discovery-editor .editor-actions > p {
+  flex-basis: 100%;
+}
+:root[data-android-app="true"] #discovery-editor .editor-actions button {
+  flex: 1 1 180px;
+  min-height: 48px;
+}
+:root[data-android-app="true"] .editor-privacy {
+  margin-top: 16px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-android-app="true"] *,
+  :root[data-android-app="true"] *::before,
+  :root[data-android-app="true"] *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 350px) {
+  :root[data-android-app="true"] .shell {
+    padding-inline: 12px;
+  }
+  :root[data-android-app="true"] .brand {
+    font-size: 16px;
+  }
+  :root[data-android-app="true"] .header-actions {
+    gap: 2px;
+  }
+  :root[data-android-app="true"] .appearance-label,
+  :root[data-android-app="true"] .motion-label {
+    display: none;
+  }
+  :root[data-android-app="true"] #notebook[open] {
+    padding-inline: 14px;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  :root[data-android-app="true"] header {
+    padding-block: 6px;
+  }
+  :root[data-android-app="true"] .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  :root[data-android-app="true"] .hero h1 {
+    font-size: 42px;
+  }
+  :root[data-android-app="true"] .hero .landscape {
+    min-height: 210px;
+  }
+  :root[data-android-app="true"] dialog {
+    max-height: calc(100dvh - 16px);
+    margin-block: 8px;
+  }
+}
+@media (min-width: 760px) {
+  :root[data-android-app="true"] .shell {
+    max-width: 980px;
+    margin-inline: auto;
+  }
+  :root[data-android-app="true"] #notebook[open] {
+    padding-inline: max(24px, calc((100vw - 900px) / 2));
+  }
+}
+
+:root[data-android-app="true"] #save-discovery,
+:root[data-android-app="true"] #discard-discovery {
+  min-height: 48px;
+}

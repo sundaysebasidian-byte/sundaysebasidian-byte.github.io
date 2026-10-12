@@ -1,0 +1,129 @@
+/* A small, finite arrival. Resting surfaces and the landscape remain still. */
+:root {
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.choice-card,
+.sample-card {
+  transition:
+    transform 320ms var(--ease),
+    opacity 240ms var(--ease);
+}
+.segmented span,
+.places span,
+.suggestions button,
+.primary,
+.secondary,
+.text-button {
+  transition:
+    transform 180ms var(--ease),
+    opacity 180ms var(--ease),
+    background-color 180ms;
+}
+.primary:not(:disabled):active,
+.secondary:not(:disabled):active,
+.text-button:not(:disabled):active,
+.segmented input:not(:disabled):active + span,
+.places input:not(:disabled):active + span,
+.suggestions button:not(:disabled):active {
+  transition-duration: 70ms;
+}
+/* Native open/close and focus restoration happen immediately. Where supported,
+   the retiring dialog is visual only and cannot intercept another action. */
+dialog {
+  animation: none;
+  opacity: 0;
+  translate: 0 6px;
+  transition:
+    opacity 240ms var(--ease),
+    translate 360ms var(--ease),
+    display 360ms allow-discrete,
+    overlay 360ms allow-discrete;
+}
+dialog[open] {
+  opacity: 1;
+  translate: 0 0;
+}
+dialog:not([open]),
+dialog:not([open])::backdrop {
+  pointer-events: none;
+}
+/* A native modal handoff has one visible sheet and one veil. A closed sheet
+   must not retain its top-layer retirement while its successor is already open.
+   Closing the final dialog still uses the normal finite retirement above. */
+@media screen {
+  html:has(dialog[open]) dialog:not([open]),
+  html:has(dialog[open]) dialog:not([open])::backdrop {
+    transition: none !important;
+  }
+  html:has(dialog[open]) dialog:not([open])::backdrop {
+    background-color: transparent !important;
+  }
+}
+dialog::backdrop {
+  background-color: #123f3400;
+  transition:
+    background-color 280ms var(--ease),
+    display 360ms allow-discrete,
+    overlay 360ms allow-discrete;
+}
+dialog[open]::backdrop {
+  background-color: #123f3480;
+}
+@starting-style {
+  dialog[open] {
+    opacity: 0.94;
+    translate: 0 6px;
+  }
+  dialog[open]::backdrop {
+    background-color: #123f3400;
+  }
+}
+#refinements[open] .refinement-controls {
+  animation: none;
+}
+.note-snapshot[open] > ol {
+  animation: none;
+}
+/* Native disclosure semantics also remain immediate. Older browsers retain
+   native details; no JS timers, delayed toggles or fixed content heights. */
+@supports (interpolate-size: allow-keywords) and
+  (transition-behavior: allow-discrete) {
+  details::details-content {
+    interpolate-size: allow-keywords;
+    block-size: 0;
+    opacity: 0.94;
+    overflow: clip;
+    transition:
+      block-size 340ms var(--ease),
+      opacity 260ms var(--ease),
+      content-visibility 340ms allow-discrete;
+  }
+  details[open]::details-content {
+    block-size: auto;
+    content-visibility: visible;
+    opacity: 1;
+    /* Text and accessible content are available in the very same frame as
+       the native toggle. Only geometry fades in; retirement may stay visual. */
+    transition:
+      block-size 340ms var(--ease),
+      opacity 260ms var(--ease);
+  }
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after,
+html[data-motion="reduced"] dialog::backdrop,
+html[data-motion="reduced"] details::details-content {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  dialog::backdrop,
+  details::details-content {
+    animation: none !important;
+    transition: none !important;
+  }
+}

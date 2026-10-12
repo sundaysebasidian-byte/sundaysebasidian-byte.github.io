@@ -1,0 +1,41 @@
+/* Fix real interaction gaps without adding an animated surface or pigment. */
+/* liquid-field's later backdrop background overrode the transparent closed
+   target, causing a closing dialog to darken from .5 to .8. */
+dialog:not([open])::backdrop {
+  background-color: #123f3400;
+}
+#discovery-tags button:is(:active, [data-pressing="true"]) {
+  box-shadow: inset 0 0 0 2px var(--line);
+  opacity: 0.85;
+}
+.notebook-empty:has(> #notebook-empty[hidden]) {
+  display: none;
+}
+.notebook-empty > p {
+  margin: 0;
+}
+#notebook-start {
+  margin-top: 16px;
+  min-height: 45px;
+}
+.notebook-about {
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.notebook-about > summary {
+  min-height: 44px;
+  padding-block: 10px;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+}
+.notebook-about .muted {
+  font-size: 14px;
+}
+@media (max-width: 700px) {
+  #notebook-title {
+    padding-right: 48px;
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.15;
+  }
+}

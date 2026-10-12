@@ -1,0 +1,91 @@
+/* The accepted palette and artwork stay intact. Depth is bounded to paper. */
+:root {
+  --paper-ease: cubic-bezier(0.22, 0.68, 0.25, 1);
+}
+.trip-layout {
+  perspective: 1200px;
+}
+.trip-card,
+#result .departure {
+  transform-origin: 50% 18%;
+}
+.trip-card,
+.trip-card[data-motif] {
+  box-shadow:
+    inset 1px 0 0 #ffffff99,
+    0 4px 0 #e1e4d5,
+    0 5px 0 1px #c5ceba,
+    0 24px 36px -28px #334d3666;
+}
+.sample-card {
+  transform-origin: 14% 85%;
+  transition: transform 320ms var(--paper-ease);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html[data-depth="on"]:not([data-motion="reduced"]):not(
+      [data-effects="simple"]
+    )
+    .sample-card:hover {
+    transform: perspective(850px) rotate(-2deg) rotateX(3deg) translateY(-3px);
+  }
+}
+#refinement-summary {
+  display: block;
+  transform-origin: left center;
+}
+.refinement-lens {
+  box-shadow: inset 1px 0 0 #ffffff99;
+}
+/* One editor sheet: open from the paper plane, retire after native close. */
+#discovery-editor {
+  transform: perspective(1000px) rotateX(-1deg) scale(0.99);
+  transform-origin: 50% 25%;
+  translate: 0 8px;
+  transition:
+    opacity 180ms var(--paper-ease),
+    translate 240ms var(--paper-ease),
+    transform 240ms var(--paper-ease),
+    display 240ms allow-discrete,
+    overlay 240ms allow-discrete;
+}
+#discovery-editor[open] {
+  transform: perspective(1000px) rotateX(0deg) scale(1);
+  translate: 0 0;
+}
+/* The finite .99 scale still leaves at least44px during entry, not just rest. */
+#discovery-editor :is(button, select, summary, .done-with-note) {
+  min-height: 45px;
+}
+#discovery-editor button {
+  min-width: 45px;
+}
+#discovery-editor:not([open])[data-retirement="saved"] {
+  transform: perspective(1000px) rotateX(1.2deg) scale(0.99);
+  translate: 0 -5px;
+}
+@starting-style {
+  #discovery-editor[open] {
+    transform: perspective(1000px) rotateX(1.2deg) scale(0.99);
+    translate: 0 8px;
+  }
+}
+html[data-page-visibility="hidden"] *,
+html[data-page-visibility="hidden"] *::before,
+html[data-page-visibility="hidden"] *::after,
+html[data-page-visibility="hidden"] dialog::backdrop,
+html[data-page-visibility="hidden"] details::details-content {
+  animation: none !important;
+  transition: none !important;
+}
+/* All controls retain their full-size resting targets in constrained modes. */
+html[data-motion="reduced"] #discovery-editor,
+html[data-effects="simple"] #discovery-editor {
+  transform: none;
+  translate: 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  #discovery-editor {
+    transform: none;
+    translate: 0 0;
+  }
+}

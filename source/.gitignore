@@ -1,0 +1,14 @@
+node_modules
+dist/
+playwright-report/
+test-results/
+.env*
+.DS_Store
+public/runtime/
+evidence/demo-raw/
+
+# Native candidate build products
+android/build/
+android/__pycache__/
+
+android/model/

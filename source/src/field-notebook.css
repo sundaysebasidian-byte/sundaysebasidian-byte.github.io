@@ -1,0 +1,251 @@
+/* A small landscape cover with an actual authored paper in front. */
+.landscape {
+  isolation: isolate;
+  overflow: visible;
+  background: #dfe8dc;
+}
+.landscape::before {
+  content: "";
+  position: absolute;
+  inset: 8px 4px -6px;
+  border: 1px solid #b9cdb8;
+  border-radius: inherit;
+  background: #d0ddc8;
+  transform: rotate(-1deg);
+  z-index: -1;
+  pointer-events: none;
+}
+.landscape > svg {
+  border-radius: 28px 28px 0 0;
+}
+.art-caption {
+  border-radius: 0 0 28px 28px;
+}
+.sample-card {
+  left: 32px;
+  right: 42px;
+  border-color: #d5dfcb;
+  box-shadow:
+    0 3px 0 #cbd7c2,
+    0 9px 20px #264c3820;
+}
+@media (max-width: 700px) {
+  .landscape::before {
+    inset: 4px 4px -4px;
+    transform: none;
+  }
+  .landscape > svg {
+    border-radius: inherit;
+    opacity: 0.75;
+  }
+  .sample-card {
+    inset: auto;
+    margin: 4px 24px 4px 6px;
+    box-shadow: 0 2px 0 #cad7c0;
+  }
+}
+
+/* The example opens the existing authored guide, never an AI match. */
+.sample-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.sample-preview:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.sample-title {
+  display: block;
+  font:
+    400 28px/1.15 Georgia,
+    serif;
+  margin: 6px 0;
+}
+.sample-cues {
+  display: block;
+  padding-right: 22px;
+}
+.sample-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 17px;
+  color: #46654e;
+}
+@media (max-width: 700px) {
+  .sample-title {
+    font-size: 20px;
+    margin: 3px 0;
+  }
+}
+
+/* One finite paper reveal, with a visible keyboard reading target. */
+.trip-card::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -7px;
+  height: 6px;
+  border: 1px solid #cad6bc;
+  border-top: 0;
+  border-radius: 0 0 20px 20px;
+  background: #e3ead8;
+  pointer-events: none;
+}
+#card-title:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+/* The three pocket cues read as one small take-away sheet. */
+#departure {
+  background: #fffdf8;
+}
+.departure-cues {
+  padding: 12px 16px;
+  margin: 22px 0;
+  border: 1px solid #cbd8bf;
+  border-radius: 16px;
+  background: #f0f4e7;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 3px 0 #d9e2cd;
+}
+.departure-cues li {
+  gap: 14px;
+  padding: 12px 0;
+  border-top-color: #cbd5c3;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.departure-cues li:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+.departure-cues li:last-child {
+  padding-bottom: 4px;
+}
+.departure-cues li::before {
+  flex: 0 0 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  border: 1px solid #aebfa0;
+  border-radius: 50%;
+}
+
+/* Short labels fit the 320 cells; all header actions keep full touch areas. */
+@media (max-width: 700px) {
+  #motion-toggle {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .header-actions #notebook-count {
+    display: none;
+  }
+  #notebook-open {
+    min-width: 44px;
+  }
+}
+
+/* A truthful receipt appears at the action just used, after storage commits. */
+#record[data-confirmed="true"] {
+  color: #234c39;
+  background: #e6efdf;
+  border-color: #819d70;
+}
+
+/* Entries lead; the tool jump stays close even when the notebook is long. */
+#notebook-tools-jump {
+  min-height: 44px;
+  padding: 4px 0;
+  margin: 4px 0;
+}
+#notebook-list {
+  margin-top: 14px;
+}
+
+/* A bounded paper edge follows real saved entries; the count stays exact. */
+#notebook[data-depth="2"] {
+  box-shadow:
+    0 4px 0 #cbd7c2,
+    0 8px 0 -1px #e0e8d7,
+    0 24px 64px #122d334d;
+}
+#notebook[data-depth="3"] {
+  box-shadow:
+    0 4px 0 #cbd7c2,
+    0 8px 0 -1px #e0e8d7,
+    0 12px 0 -2px #cbd7c2,
+    0 24px 64px #122d334d;
+}
+.discovery-note {
+  background: linear-gradient(90deg, #edf1e3 0 12px, #fffef8 12px);
+  border-color: #c9d6bd;
+  border-radius: 10px 18px 18px 10px;
+  padding-left: 26px;
+  box-shadow: 0 3px 0 #d2dcc7;
+}
+#notebook-summary {
+  color: #315c44;
+}
+@media (max-width: 700px) {
+  .discovery-note {
+    padding-left: 22px;
+  }
+}
+
+/* Read-only pages unfold once; guide feedback avoids padding/layout animation. */
+.note-snapshot[open] > ol {
+  animation: field-unfold 180ms var(--ease);
+}
+.guide-note {
+  transition:
+    background-color 140ms,
+    transform 140ms var(--ease);
+}
+.guide-note:not(:disabled):active {
+  background: #e5eddd;
+  transform: translateY(1px);
+}
+.guide-arrow {
+  transition: transform 140ms var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .guide-note:not(:disabled):hover {
+    padding-left: 0;
+    background: #eef2e7;
+  }
+  .guide-note:not(:disabled):hover .guide-arrow {
+    transform: translate(2px, -2px);
+  }
+}
+html[data-motion="reduced"] :is(.guide-note, .guide-arrow) {
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .guide-note,
+  .guide-arrow {
+    transform: none !important;
+  }
+}
+
+/* Keep the visible focus ring clear of adjacent 44px header controls. */
+.header-actions button:focus-visible {
+  outline-offset: -1px;
+}

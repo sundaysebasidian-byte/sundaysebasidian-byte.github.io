@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.pocketfieldtrip.securitytest">
+  <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="36"/>
+  <application android:label="Private PFT boundary test" android:debuggable="true">
+    <provider android:name=".FixtureProvider" android:authorities="org.pocketfieldtrip.securitytest.documents" android:exported="true" android:grantUriPermissions="true" android:process=":fixtures"/>
+    <activity android:name=".GrantActivity" android:exported="true" android:process=":fixtures" android:theme="@android:style/Theme.NoDisplay"/>
+  </application>
+  <instrumentation android:name=".BoundaryInstrumentation" android:targetPackage="org.pocketfieldtrip.review"/>
+  <instrumentation android:name=".JournalBoundaryInstrumentation" android:targetPackage="org.pocketfieldtrip.review"/>
+</manifest>

@@ -1,0 +1,243 @@
+/* A clearer route and quiet paper depth; the accepted pigments stay intact. */
+@media screen {
+  #journey {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-block: 8px 36px;
+    padding-block: 18px;
+    border-block: 1px solid var(--line);
+  }
+  #journey button {
+    min-height: 45px;
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: var(--ink);
+    background: transparent;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  #journey button span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+  #journey button[aria-current="step"] {
+    background: #edf1e5;
+    border-color: #b6c3a9;
+  }
+  #journey button:disabled {
+    color: #626c5c;
+    opacity: 0.7;
+  }
+  .home-draft {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 20px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    border: 1px solid #b6c3a9;
+    border-radius: 16px;
+    background: #f5f7ee;
+  }
+  .home-draft p {
+    margin: 0;
+  }
+  .dialog-tools {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 45px;
+    padding-block: 3px;
+    margin-block: -4px 12px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  dialog > .dialog-tools > .dialog-close {
+    position: static;
+    float: none;
+    margin: 0;
+    min-width: 45px;
+    min-height: 45px;
+  }
+  #compose-customize {
+    margin-block: 14px;
+  }
+  #compose-customize > summary {
+    cursor: pointer;
+    min-height: 45px;
+    padding-block: 12px;
+  }
+  #compose-customize label {
+    display: block;
+    margin-block: 12px 4px;
+  }
+  #compose-customize select {
+    width: 100%;
+    min-height: 45px;
+  }
+  .compose-intro {
+    max-width: 36ch;
+  }
+  .writing-starters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block: 8px 20px;
+  }
+  .writing-starters button {
+    min-height: 45px;
+    border: 1px solid #b6c3a9;
+    border-radius: 12px;
+    background: #f5f7ee;
+    color: #244936;
+    padding: 8px 12px;
+    font: inherit;
+  }
+  .writing-starters button:disabled {
+    background: transparent;
+    color: #68705f;
+    border-color: #d2d8c7;
+  }
+  #return-from-trip {
+    width: 100%;
+    margin-top: 12px;
+  }
+  #quiet-return {
+    width: 100%;
+    min-height: 45px;
+    margin-top: 12px;
+  }
+  #active-note-filters {
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    margin: 0 0 8px;
+  }
+  #notebook-density {
+    min-height: 45px;
+    margin-top: 12px;
+  }
+  .discovery-row-toggle {
+    display: none;
+    min-height: 45px;
+  }
+  #notebook[data-density="compact"] .discovery-row-toggle {
+    display: inline-block;
+  }
+  #notebook[data-density="compact"] .discovery-note {
+    padding-block: 16px;
+  }
+  #notebook[data-density="compact"]
+    .discovery-note:not([data-expanded="true"])
+    :is(.discovery-actions, .note-snapshot, .discovery-copy-status) {
+    display: none;
+  }
+  #notebook[data-density="compact"] .discovery-note .discovery-line {
+    margin-block: 10px;
+  }
+  #notebook .notebook-list {
+    gap: 24px;
+  }
+  .notebook-collection,
+  .compose-preview {
+    background: linear-gradient(135deg, #fffdf7b3, #f5f7ee);
+    box-shadow:
+      inset 0 1px 0 #ffffffcc,
+      0 9px 22px -18px #24493666;
+  }
+  .discovery-note {
+    background: #fcfaf2;
+    box-shadow:
+      inset 0 1px 0 #fffdf7,
+      0 2px 0 #d8decb,
+      0 14px 24px -22px #24493666;
+    transition: transform 160ms var(--paper-ease);
+  }
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    html[data-depth="on"]:not([data-motion="reduced"]):not(
+        [data-effects="simple"]
+      )
+      .discovery-note:hover {
+      /* rc.10 keeps reading text flat; appearance.css moves its backing paper. */
+      transform: none;
+    }
+  }
+  #notebook {
+    background: linear-gradient(150deg, #fcfaf2, #f2f2e7);
+  }
+  .composition-builder {
+    margin-block: 24px;
+  }
+  #result .card-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+  }
+  #previous-card {
+    min-height: 45px;
+  }
+  @media (max-width: 420px) {
+    #journey {
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    #journey button {
+      font-size: 12px;
+      padding: 8px;
+    }
+    .home-draft {
+      padding: 12px 16px;
+    }
+    .writing-starters button {
+      flex: 1 1 110px;
+    }
+    #notebook .notebook-list {
+      gap: 18px;
+    }
+  }
+  html[data-effects="simple"]
+    :is(.notebook-collection, .compose-preview, .discovery-note) {
+    box-shadow: none;
+  }
+  html[data-motion="reduced"] .discovery-note,
+  html[data-effects="simple"] .discovery-note {
+    transform: none;
+  }
+}
+
+@media screen {
+  .active-trip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .active-trip p {
+    margin: 0;
+  }
+  .trip-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .trip-actions button {
+    min-height: 44px;
+  }
+  #trip-message:empty {
+    display: none;
+  }
+  #trip-finish-confirmation,
+  #trip-replace {
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+  #departure button {
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,30 @@
+#rescue-pack-text {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 8rem;
+  max-height: 35dvh;
+  resize: vertical;
+  font: inherit;
+}
+.literal-discovery-review {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.literal-discovery-review details {
+  margin-block: 0.6rem;
+}
+#restore-file-identity {
+  overflow-wrap: anywhere;
+}
+
+.comparison-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  align-items: center;
+}
+.comparison-actions button {
+  min-height: 44px;
+  text-align: left;
+}

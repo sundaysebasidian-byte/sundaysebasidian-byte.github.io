@@ -1,0 +1,298 @@
+.guide-note > span.guide-fit:not(.guide-arrow) {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 8px;
+  margin-top: 8px;
+  border: 1px solid #b9c9a7;
+  border-radius: 9px;
+  background: #eaf1dc;
+  color: #285840;
+  font:
+    12px/1.4 system-ui,
+    sans-serif;
+  letter-spacing: 0;
+}
+@media (max-width: 700px) and (max-height: 500px) {
+  #discovery-editor > .eyebrow {
+    display: none;
+  }
+  #discovery-editor #discovery-title {
+    font-size: 21px;
+  }
+  #discovery-editor textarea {
+    min-height: 64px;
+    height: 64px;
+  }
+}
+.guide-note > span.guide-fit[data-fits="false"] {
+  background: #fbefda;
+  border-color: #d8bd91;
+  color: #71582e;
+}
+.notebook-view-context {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border: 1px solid #b9c9a7;
+  border-radius: 14px;
+  background: #eaf1dc;
+}
+.notebook-view-context p {
+  margin: 0;
+  font-size: 14px;
+}
+.discovery-copy-status {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #375d46;
+}
+.discovery-copy-status:empty {
+  display: none;
+}
+.offline-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  margin: 12px 0;
+  border: 1px solid #b8ccaa;
+  border-radius: 14px;
+  background: #eaf2dd;
+}
+.offline-routes button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.save-error {
+  padding: 10px 12px;
+  margin: 14px 0 0;
+  border: 1px solid #c49469;
+  border-radius: 12px;
+  background: #fff0db;
+  color: #72451d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.departure .feedback-actions .draft-status {
+  padding: 10px;
+  border: 1px solid #c3ad7d;
+  border-radius: 10px;
+  background: #fff9e9;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+/* Static paper depth: a spine, two thin page edges and an opaque reading face. */
+.trip-card::before {
+  bottom: -9px;
+  height: 8px;
+  background: linear-gradient(#e3ead8 0 45%, #adc29a 45% 55%, #eff2dc 55%);
+  border-color: #b5c7a4;
+  box-shadow: 0 4px 0 -1px #cbd9b7;
+}
+.discovery-note {
+  background: linear-gradient(
+    90deg,
+    #c7d7b8 0 3px,
+    #ebefd6 3px 10px,
+    #fffcf1 10px
+  );
+}
+.discovery-note::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 0 0 20px;
+  background: linear-gradient(
+    135deg,
+    transparent 47%,
+    #ceddb8 49% 57%,
+    #f5f6dc 58%
+  );
+  pointer-events: none;
+}
+@starting-style {
+  dialog[open] {
+    opacity: 1;
+  }
+}
+@media (max-width: 700px) {
+  dialog .dialog-close {
+    position: sticky;
+    float: right;
+    top: 6px;
+    right: auto;
+    margin: -12px -10px 0 8px;
+    z-index: 5;
+    background: #fffef2;
+    box-shadow: 0 2px 0 #bacbaa;
+  }
+  #discovery-editor .editor-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px;
+    flex-shrink: 0;
+    padding: 10px 0 calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid #c8cda9;
+    background: #f5f1db;
+    z-index: 3;
+  }
+  #discovery-editor .editor-actions button {
+    margin: 0;
+    min-height: 44px;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  #discovery-message {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  #discovery-message:empty {
+    display: none;
+  }
+  #discovery-editor[open] {
+    display: flex;
+  }
+  /* Retain the same geometry while native display/overlay retires on close. */
+  #discovery-editor {
+    flex-direction: column;
+    padding: 18px;
+    max-height: calc(100dvh - 24px);
+    overflow: hidden;
+  }
+  #discovery-editor .dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    margin: 0;
+    float: none;
+  }
+  #discovery-editor > .eyebrow {
+    margin: 0 0 8px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  #discovery-title {
+    font-size: 26px;
+    line-height: 1.2;
+    margin: 0 0 8px;
+    padding-right: 36px;
+  }
+  #discovery-task {
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 0 0 10px;
+  }
+  #discovery-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+  #discovery-editor .editor-fields {
+    min-height: 0;
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 3px;
+  }
+  #discovery-editor .editor-privacy {
+    flex-shrink: 0;
+    margin: 0;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+  #discovery-editor .editor-privacy summary {
+    min-height: 44px;
+    font-size: 13px;
+    padding: 10px 0;
+  }
+  #discovery-editor :is(textarea, select, input) {
+    scroll-margin-block: 12px;
+  }
+}
+
+/* On a short phone viewport the sheet itself scrolls. Keeping a pinned header
+   and action row would otherwise squeeze the writing area to a few pixels. */
+@media screen and (max-width: 700px) and (max-height: 540px) {
+  #discovery-editor[open] {
+    display: block;
+  }
+  #discovery-editor {
+    overflow-y: auto;
+    scroll-padding-block-start: 64px;
+  }
+  #discovery-form {
+    display: block;
+    overflow: visible;
+  }
+  #discovery-editor .editor-fields {
+    overflow: visible;
+  }
+  #discovery-editor .editor-privacy {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Explicit reading mode keeps the entire card, provenance and safety visible. */
+.result-tools {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+.result-tools #edit,
+#quiet-card {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+#quiet-card {
+  border: 1px solid #90b597;
+  border-radius: 12px;
+  background: #fffef1;
+  text-decoration: none;
+}
+#quiet-card[aria-pressed="true"] {
+  background: #dbedcc;
+}
+#result[data-reading="quiet"] .departure,
+#result[data-reading="quiet"] #lab {
+  display: none;
+}
+#result[data-reading="quiet"] .trip-layout {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
+  margin-inline: auto;
+}
+@media (max-width: 700px) {
+  .result-tools {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* A one-pixel reserve protects44px physical targets during fractional translation. */
+.suggestions button,
+.segmented label,
+.still,
+#discovery-editor .editor-actions button,
+dialog .dialog-close {
+  min-height: 45px;
+}

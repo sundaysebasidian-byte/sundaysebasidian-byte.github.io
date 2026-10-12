@@ -1,0 +1,1594 @@
+<a class="skip-link" href="#planner">Skip to trip choices</a>
+<div class="shell">
+  <header>
+    <a class="brand" href="/" aria-label="Pocket Field Trip home"
+      ><img src="/leaf.svg" alt="" width="30" height="30" />Pocket Field
+      Trip<span class="edition">FIELD GUIDE № 01</span></a
+    >
+    <nav class="header-actions">
+      <button
+        class="appearance-open"
+        id="appearance-open"
+        type="button"
+        aria-label="Appearance"
+        aria-haspopup="dialog"
+        aria-controls="appearance-dialog"
+        aria-expanded="false"
+        title="Appearance"
+      >
+        <span aria-hidden="true">◐</span
+        ><span class="appearance-label">Appearance</span>
+      </button>
+      <button
+        class="motion-control"
+        id="motion-toggle"
+        type="button"
+        aria-label="Reduced motion"
+        aria-pressed="false"
+        title="Reduced motion: off"
+      >
+        <span aria-hidden="true">◌</span
+        ><span class="motion-label">Motion</span>
+      </button>
+      <button
+        class="text-button"
+        id="notebook-open"
+        aria-label="My discoveries"
+      >
+        <span class="wide-nav-label">My discoveries</span
+        ><span class="compact-nav-label" aria-hidden="true">Notes</span
+        ><span id="notebook-count">0</span>
+      </button>
+      <button class="text-button" id="about" aria-label="How it works">
+        <span class="wide-nav-label">How it works ↗</span>
+        <span class="compact-nav-label" aria-hidden="true">?</span>
+      </button>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="dot"></span> YOUR NEARBY FIELD GUIDE.
+        </p>
+        <h1>
+          Outside,<br />
+          <em>for a moment.</em>
+        </h1>
+        <p class="intro">A little time. A fresh pair of eyes.</p>
+        <div class="hero-tokens" aria-label="Field trip basics">
+          <span>5–20 minutes</span><span>Right where you are</span>
+        </div>
+      </div>
+      <div class="landscape">
+        <!-- LANDSCAPE -->
+        <span class="scene-label" aria-hidden="true"
+          >THE WORLD IS STILL OUT THERE</span
+        >
+        <aside
+          class="sample-card"
+          aria-label="Example authored card, not an AI match"
+        >
+          <button
+            id="sample-open"
+            class="sample-preview"
+            type="button"
+            aria-label="Preview Make a sound map — authored example, no AI"
+          >
+            <span class="sample-meta"
+              ><span>Example · no AI</span><span>5 min · one spot</span></span
+            >
+            <span id="sample-title" class="sample-title"></span>
+            <span class="sample-cues" id="sample-cues"></span>
+            <span class="sample-arrow" aria-hidden="true">↗</span>
+          </button>
+        </aside>
+        <svg class="paper-leaf" viewBox="0 0 100 140" aria-hidden="true">
+          <path
+            d="M19 137C35 102 54 54 79 8"
+            fill="none"
+            stroke="#123f34"
+            stroke-width="5"
+          />
+          <path
+            d="M33 109C-5 97 8 60 33 76C50 87 42 106 33 109ZM48 81C14 66 23 32 49 48C63 59 58 74 48 81ZM64 52C45 21 70 1 80 13C88 33 77 44 64 52ZM38 100C77 92 95 106 72 119C56 123 42 112 38 100ZM55 71C86 54 105 70 90 85C74 98 57 84 55 71"
+            fill="#28694b"
+            stroke="#123f34"
+            stroke-width="1.5"
+          />
+        </svg>
+        <div class="art-caption">
+          <span>THE NEARBY IS ENOUGH</span><span aria-hidden="true">↗</span>
+        </div>
+      </div>
+    </section>
+    <nav id="journey" aria-label="Your route through the field guide">
+      <button type="button" data-stage="choose" aria-current="step">
+        <span aria-hidden="true">01</span> Pick a card
+      </button>
+      <button type="button" data-stage="take" disabled>
+        <span aria-hidden="true">02</span> Take it outside
+      </button>
+      <button type="button" data-stage="keep" disabled>
+        <span aria-hidden="true">03</span> Keep a note
+      </button>
+    </nav>
+    <aside id="home-draft" class="home-draft" hidden>
+      <p>One unsaved discovery · this tab only.</p>
+      <button id="home-resume-draft" class="text-button" type="button">
+        Continue my draft ↗
+      </button>
+    </aside>
+    <aside
+      id="active-trip"
+      class="home-draft active-trip"
+      hidden
+      aria-labelledby="active-trip-label"
+    >
+      <p id="active-trip-label">One trip kept for your return</p>
+      <p id="active-trip-title"></p>
+      <div class="trip-actions">
+        <button id="trip-resume" class="text-button" type="button">
+          Return to this card ↗
+        </button>
+        <button id="trip-record" class="text-button" type="button">
+          Keep a discovery
+        </button>
+        <button id="trip-finish" class="text-button" type="button">
+          Finish trip…
+        </button>
+      </div>
+      <div id="trip-finish-confirmation" hidden>
+        <p>
+          Forget only this kept trip? Your saved cards, discoveries and any
+          in-tab draft stay. Nothing is marked done.
+        </p>
+        <div class="trip-actions">
+          <button id="trip-finish-confirm" class="secondary" type="button">
+            Finish without a note
+          </button>
+          <button id="trip-finish-cancel" class="text-button" type="button">
+            Keep this trip
+          </button>
+        </div>
+      </div>
+      <p id="trip-message" role="status"></p>
+    </aside>
+    <section id="planner" class="planner" aria-labelledby="planner-title">
+      <div class="section-heading">
+        <h2 id="planner-title">Pick your ingredients.</h2>
+      </div>
+      <form id="trip-form" aria-busy="false">
+        <div class="choices">
+          <fieldset class="choice-card time-card">
+            <legend><span class="step-index">01</span> Time</legend>
+            <div class="segmented">
+              <label
+                ><input type="radio" name="minutes" value="5" checked /><span
+                  >5 min</span
+                ></label
+              ><label
+                ><input type="radio" name="minutes" value="10" /><span
+                  >10 min</span
+                ></label
+              ><label
+                ><input type="radio" name="minutes" value="20" /><span
+                  >20 min</span
+                ></label
+              >
+            </div>
+          </fieldset>
+          <fieldset class="choice-card nearby-card">
+            <legend><span class="step-index">02</span> Nearby</legend>
+            <div class="places">
+              <label
+                ><input
+                  type="radio"
+                  name="setting"
+                  value="street"
+                  checked
+                  aria-label="A street"
+                /><span
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M3 19h18M6 19V8l5-4v15M11 10h7v9M8 10v2m0 3v1m6-3h1m0 3h1"
+                    /></svg
+                  ><i class="selection-mark" aria-hidden="true">✓</i
+                  ><b>Street</b></span
+                ></label
+              ><label
+                ><input
+                  type="radio"
+                  name="setting"
+                  value="park"
+                  aria-label="A park"
+                /><span
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21v-6M7 16h10M6 13l6-10 6 10H6Z" /></svg
+                  ><i class="selection-mark" aria-hidden="true">✓</i
+                  ><b>Park</b></span
+                ></label
+              ><label
+                ><input
+                  type="radio"
+                  name="setting"
+                  value="garden"
+                  aria-label="A garden"
+                /><span
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 21v-9m0 5c-6 0-8-4-8-7 5 0 8 3 8 7Zm0-5c0-5 4-8 8-8 0 5-3 8-8 8Z"
+                    /></svg
+                  ><i class="selection-mark" aria-hidden="true">✓</i
+                  ><b>Garden</b></span
+                ></label
+              ><label
+                ><input
+                  type="radio"
+                  name="setting"
+                  value="water"
+                  aria-label="Water"
+                /><span
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M3 9c3-4 6 4 9 0s6 4 9 0M3 15c3-4 6 4 9 0s6 4 9 0"
+                    /></svg
+                  ><i class="selection-mark" aria-hidden="true">✓</i
+                  ><b>Water</b></span
+                ></label
+              >
+            </div>
+          </fieldset>
+        </div>
+        <div class="intent-row">
+          <div class="choice-card intent-card">
+            <label for="intent"
+              ><span class="step-index">03</span> What do you need?</label
+            ><textarea
+              id="intent"
+              maxlength="280"
+              rows="2"
+              aria-describedby="intent-hint"
+              placeholder="My mind is crowded. I want something quiet to notice."
+              required
+            ></textarea>
+            <div class="intent-meta">
+              <span id="intent-hint">Use an English sentence.</span
+              ><span id="intent-count" aria-hidden="true">0 / 280</span>
+            </div>
+            <div class="suggestions" aria-label="Intent suggestions">
+              <button
+                type="button"
+                data-intent="My mind is crowded. I want something quiet to notice."
+                aria-label="A quieter mind"
+              >
+                Quiet</button
+              ><button
+                type="button"
+                data-intent="I feel stuck creatively and want to see ordinary things differently."
+                aria-label="A spark of curiosity"
+              >
+                Curiosity</button
+              ><button
+                type="button"
+                data-movement="walk"
+                data-intent="I have been sitting all day and want to stretch my legs."
+                aria-label="A little movement"
+              >
+                Movement
+              </button>
+            </div>
+          </div>
+          <details id="refinements">
+            <summary>
+              Optional details<small id="refinement-summary" aria-live="polite"
+                >Any lens</small
+              >
+            </summary>
+            <div class="refinement-controls">
+              <fieldset class="detail-choices">
+                <legend>
+                  Details I can actually see
+                  <small
+                    >Optional · cards needing these stay out until
+                    selected</small
+                  >
+                </legend>
+                <label
+                  ><input type="checkbox" name="feature" value="light" /> Direct
+                  light and shadows</label
+                >
+                <label
+                  ><input type="checkbox" name="feature" value="plant" /> A
+                  tree, leaf or planted bed</label
+                >
+              </fieldset>
+              <div class="refinement-lens">
+                <label class="lens-choice" for="lens"
+                  >A lens to try <span>Narrows the reviewed tasks</span></label
+                >
+                <select id="lens" name="lens">
+                  <option value="any">Any way of noticing</option>
+                  <option value="sound">Sound & distance</option>
+                  <option value="perspective">A different view</option>
+                  <option value="change">Small changes</option>
+                  <option value="texture">Surfaces & texture</option>
+                  <option value="edges">Edges & boundaries</option>
+                </select>
+              </div>
+            </div>
+          </details>
+          <div class="action-area">
+            <div class="movement-choices" id="movement-choices">
+              <label class="still"
+                ><input type="checkbox" id="still" /><span class="still-copy"
+                  ><b>Keep it in one spot</b
+                  ><small>Sit if you like</small></span
+                ><i class="toggle-track" aria-hidden="true"></i></label
+              ><label class="walk-choice"
+                ><input type="checkbox" id="walk" /> I want a gentle walk</label
+              >
+              <p class="choice-hint">Both welcome unless you choose.</p>
+            </div>
+            <div class="submit-area">
+              <p id="model-download-note" role="status">
+                First AI match downloads about 50 MB.
+              </p>
+              <button
+                class="primary"
+                id="find"
+                type="submit"
+                aria-describedby="model-download-note"
+              >
+                Find my field trip <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="guide-entry">
+          <span id="choice-summary" aria-live="polite"></span>
+          <button type="button" id="browse" class="text-button">
+            Browse field notes <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <details class="privacy-details">
+          <summary>
+            Local AI. Your words stay here.<small
+              >Notes stay in this browser. Keep a backup.</small
+            >
+          </summary>
+          <p>
+            First AI use downloads about 50 MB of open weights and runtime.
+            Downloads contact the model host; matching happens locally. No GPS
+            or analytics. Offline matching needs a complete first load and
+            retained browser caches.
+          </p>
+        </details>
+      </form>
+      <div
+        id="offline-routes"
+        class="offline-routes"
+        role="group"
+        aria-label="Offline options"
+        hidden
+      >
+        <button id="offline-open-guide" class="text-button" type="button">
+          Browse without AI
+        </button>
+        <button id="offline-open-notebook" class="text-button" type="button">
+          Open my notebook
+        </button>
+        <button
+          id="offline-open-saved"
+          class="text-button"
+          type="button"
+          hidden
+        >
+          Open saved card
+        </button>
+      </div>
+      <div id="status" role="status" aria-live="polite" hidden></div>
+      <div class="loading" id="loading" hidden>
+        <div class="loading-heading">
+          <span class="loading-flower" aria-hidden="true">✳</span>
+          <div>
+            <p class="eyebrow">LOCAL INTELLIGENCE, A LITTLE PATIENCE</p>
+            <h3 id="loading-title">Preparing your field guide</h3>
+          </div>
+        </div>
+        <div
+          class="loading-bar"
+          role="progressbar"
+          aria-label="Current model loading stage"
+        >
+          <i></i>
+        </div>
+        <p id="progress-label" role="status">Getting the field guide ready…</p>
+        <div class="loading-foot">
+          <span id="loading-note"
+            >The first visit downloads open weights. Your words stay here.</span
+          ><button id="cancel" class="text-button">Cancel loading</button>
+        </div>
+        <ol class="loading-stages" aria-label="Model preparation stages">
+          <li data-stage="download">Open model</li>
+          <li data-stage="catalog">Field notes</li>
+          <li data-stage="match">Your intent</li>
+        </ol>
+        <p class="loading-scope">
+          Progress covers the current file. Cancel stops matching; an in-flight
+          download may finish.
+        </p>
+      </div>
+      <div id="failure" class="notice" hidden>
+        <h3>The model couldn’t load.</h3>
+        <p>
+          Check your connection, then try again. You can also use the clearly
+          labeled keyword guide below. It does not use AI.
+        </p>
+        <div>
+          <button id="retry" class="secondary">Retry model</button
+          ><button id="fallback" class="text-button">
+            Use keyword guide ↗
+          </button>
+        </div>
+        <details>
+          <summary>Technical details</summary>
+          <pre id="error-detail"></pre>
+        </details>
+      </div>
+      <div id="empty" class="notice" hidden>
+        <h3>No suggestion selected.</h3>
+        <p>
+          Check your choices, clear card preferences, or browse and choose
+          explicitly.
+        </p>
+      </div>
+      <div id="recent" class="notice recent-notice" hidden>
+        <h3>A familiar task can have a new day.</h3>
+        <p id="recent-detail"></p>
+        <button id="allow-repeats" class="secondary">
+          Include recently done tasks
+        </button>
+      </div>
+      <div id="weak" class="notice" hidden>
+        <p class="eyebrow">A SMALL GUIDE HAS LIMITS</p>
+        <h3 id="weak-title" tabindex="-1">Not a clear match yet.</h3>
+        <p>
+          This guide may not cover what you mean. Try an English sentence about
+          a small outdoor observation, or choose a note yourself.
+        </p>
+        <details class="weak-reason">
+          <summary>Why the cautious suggestion?</summary>
+          <p id="weak-detail" class="muted"></p>
+        </details>
+        <div>
+          <button id="rewrite" class="secondary">Refine my intent</button
+          ><button id="browse-weak" class="text-button">
+            Browse field notes</button
+          ><button id="closest" class="text-button">View closest note</button>
+        </div>
+      </div>
+    </section>
+    <aside id="return-invitation" class="return-invitation" hidden>
+      <p class="eyebrow">YOUR NOTEBOOK</p>
+      <p id="return-summary"></p>
+      <button id="return-open" class="text-button">Open my notebook</button>
+    </aside>
+    <section id="result" hidden aria-label="Your field trip">
+      <div class="result-top">
+        <div class="result-heading">
+          <h2>Your field note</h2>
+        </div>
+        <span id="match-type"></span>
+        <div class="result-tools">
+          <button id="edit" class="text-button">
+            Edit choices <span aria-hidden="true">↖</span>
+          </button>
+          <button id="quiet-card" class="text-button" aria-pressed="false">
+            Quiet card view
+          </button>
+        </div>
+      </div>
+      <p id="fit-warning" class="notice" role="status" hidden></p>
+      <div class="trip-layout">
+        <article class="trip-card" id="trip-card" aria-labelledby="card-title">
+          <div class="card-hero">
+            <div class="card-meta">
+              <span id="card-number"></span><span id="card-time"></span>
+            </div>
+            <div class="card-art-row">
+              <div class="card-icon" id="card-motif" aria-hidden="true"></div>
+              <span id="card-lens" class="lens-stamp"></span>
+            </div>
+            <h2 id="card-title" tabindex="-1"></h2>
+            <p id="card-subtitle"></p>
+          </div>
+          <div class="card-body">
+            <p class="trip-safety safety">
+              Choose a safe, accessible place. Check conditions yourself; this
+              guide doesn’t know local weather or hazards.
+            </p>
+            <details id="match-details" class="match-details">
+              <summary>Match &amp; conditions</summary>
+              <p id="match-caution" class="match-caution"></p>
+              <p id="fit-receipt" class="fit-receipt"></p>
+            </details>
+            <details id="observation-plan" hidden>
+              <summary>Why these steps fit together</summary>
+              <p id="observation-receipt"></p>
+              <p id="observation-reason"></p>
+            </details>
+            <p class="steps-heading">Three small steps</p>
+            <ol id="steps"></ol>
+            <div class="pocket-strip">
+              <span class="eyebrow">YOUR THREE POCKET CUES</span>
+              <ol id="pocket-cues"></ol>
+            </div>
+            <p id="takeaway"></p>
+            <div class="trip-actions">
+              <button id="go" class="primary">
+                I’m stepping outside <span aria-hidden="true">↗</span>
+              </button>
+              <button id="save" class="secondary">
+                Save this card for later
+              </button>
+            </div>
+            <p id="save-receipt" class="save-receipt" role="status" hidden>
+              <span aria-hidden="true">✓</span> Kept on this device. Ready for
+              next time.
+            </p>
+            <p id="save-error" class="save-error" hidden></p>
+            <button id="quiet-return" class="secondary" type="button" hidden>
+              I’m back — keep one discovery
+            </button>
+            <div class="card-foot">
+              <span>Leave things as you found them.</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </article>
+        <aside class="departure">
+          <p class="eyebrow">AFTER YOUR FIELD TRIP</p>
+          <h3>Keep one small discovery.</h3>
+          <p>One line, if you like.</p>
+          <button id="share-card" class="text-button">
+            Take this card as text ↗
+          </button>
+          <button id="print-card" class="text-button" type="button">
+            Print this card ↗
+          </button>
+          <p id="card-print-status" role="status"></p>
+          <div class="feedback-actions" aria-label="Optional card feedback">
+            <button id="record" class="secondary">Write one discovery</button>
+            <p id="draft-status" class="draft-status" hidden></p>
+            <button id="done" class="text-button">
+              I did this · without a note
+            </button>
+            <button id="not-fit" class="text-button">
+              Not for me · set family aside
+            </button>
+            <span id="card-feedback" role="status"></span>
+            <button id="undo-card-feedback" class="text-button" hidden>
+              Undo last feedback
+            </button>
+            <span id="feedback-undo-status" role="status"></span>
+          </div>
+          <div class="card-navigation">
+            <button id="previous-card" class="text-button" type="button" hidden>
+              <span aria-hidden="true">←</span> Previous note
+            </button>
+            <button id="another" class="text-button">
+              Another eligible note <span aria-hidden="true">↻</span></button
+            ><span id="card-position" aria-label="Match position"></span>
+          </div>
+        </aside>
+      </div>
+      <details class="lab" id="lab">
+        <summary>
+          Behind this match <span>Open model · local inference</span>
+        </summary>
+        <div class="lab-content">
+          <p id="explanation"></p>
+          <div class="comparison">
+            <div>
+              <h4>Semantic match</h4>
+              <div id="semantic-list"></div>
+            </div>
+            <div>
+              <h4>Keyword baseline</h4>
+              <div id="keyword-list"></div>
+            </div>
+          </div>
+          <p class="muted">
+            Cosine similarity measures meaning overlap, not a probability of
+            suitability. Scores below 0.30 trigger a cautious review step; this
+            is a small-fixture guard, not a validated accuracy boundary. The
+            baseline counts exact tag words; tied scores use a fixed
+            alphabetical order. Both obey the same hard constraints.
+          </p>
+          <pre id="evidence"></pre>
+          <button id="export" class="secondary">
+            Download inference evidence
+          </button>
+        </div>
+      </details>
+    </section>
+    <section id="saved" hidden>
+      <div class="saved-row">
+        <div>
+          <p class="eyebrow">IN YOUR POCKET</p>
+          <h3 id="saved-title"></h3>
+          <p class="saved-hint">
+            One saved card, on this browser. Saving another replaces it.
+          </p>
+        </div>
+        <button id="open-saved" class="secondary">Open saved card</button
+        ><button id="clear-saved" class="text-button">Forget card</button>
+      </div>
+    </section>
+    <section
+      id="memory"
+      class="memory"
+      hidden
+      aria-label="Local card preferences"
+    >
+      <div>
+        <p class="eyebrow">A LITTLE MEMORY. ONLY HERE.</p>
+        <p id="memory-summary"></p>
+        <p class="muted">
+          Completion preferences contain card IDs only. The three recent content
+          families stay out until you include them again; set-aside notes leave
+          until cleared. Discoveries you explicitly save can contain your words,
+          tags and dates. No account or upload.
+        </p>
+      </div>
+      <button id="undo-feedback" class="secondary" hidden>
+        Undo last feedback</button
+      ><button id="clear-feedback" class="text-button">
+        Clear card preferences
+      </button>
+    </section>
+    <section class="philosophy">
+      <span aria-hidden="true">✳</span>
+      <p>
+        A field trip doesn’t need to be far.<br /><em
+          >It only needs you to be there.</em
+        >
+      </p>
+    </section>
+  </main>
+  <footer>
+    <span>Made for the world beyond the screen.</span>
+    <div>
+      <span id="offline-status">Online · model downloads on first use</span
+      ><button id="privacy-info" class="text-button">
+        Privacy & open source
+      </button>
+    </div>
+  </footer>
+</div>
+<dialog id="info" aria-labelledby="info-title">
+  <div class="dialog-tools">
+    <button class="dialog-close" id="close-info" aria-label="Close information">
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">AN OPEN LITTLE FIELD GUIDE</p>
+  <h2 id="info-title">Small trips. Local intelligence.</h2>
+  <p>
+    A real open-weight sentence model, Xenova/all-MiniLM-L6-v2 (Apache-2.0),
+    matches the meaning of your English words to original authored observation
+    activities. Time, setting, movement and selected visible details are strict
+    filters.
+  </p>
+  <p>
+    Transformers.js (Apache-2.0) runs quantized ONNX weights with WebAssembly in
+    a worker. No text, location or inference is sent to a server. The first
+    download contacts Hugging Face and its delivery hosts, which receive normal
+    connection metadata such as your IP address. This page uses no analytics or
+    external fonts.
+  </p>
+  <p>
+    First AI use downloads roughly 50 MB of weights and runtime, plus page
+    files. Browsing authored notes does not load these AI resources. Model files
+    use the browser cache. Production app files use a service worker. Offline
+    reuse depends on a complete first load and retained browser storage. A saved
+    card and completion preferences are stored locally. Discoveries you
+    explicitly save contain your one-line text, tags, dates and the task
+    snapshot. Clear model downloads keeps this notebook; removing personal
+    records requires confirmation. Your intention is not stored. Inference
+    evidence stays in memory unless you download it. Your motion choice is kept
+    locally when storage is available; device settings take priority.
+  </p>
+  <section class="app-access" aria-labelledby="app-access-title">
+    <h3 id="app-access-title">Keep the field guide close.</h3>
+    <p id="install-app-status" role="status">
+      A compatible browser can offer home-screen installation. A complete first
+      load and retained caches are still needed for offline AI.
+    </p>
+    <button id="install-app" class="secondary" type="button" hidden>
+      Install on this device
+    </button>
+    <details class="installation-help">
+      <summary>Help with home-screen installation</summary>
+      <p>
+        If an install button appears here, use it to open your browser’s prompt.
+        Some browsers also offer Install in their menu. Availability depends on
+        your browser and device; accepting a prompt does not confirm completion.
+      </p>
+      <p>
+        On iPhone or iPad, open this page in Safari and choose Share (inside the
+        Page Menu on some iPhones). On iPad, choose View More if needed. Select
+        Add to Home Screen, turn on Open as Web App if offered, then choose Add.
+        On supported Macs, choose Add to Dock in Safari’s Share or File menu,
+        then Add.
+      </p>
+      <p>
+        Keep a JSON backup from your notebook before changing browsers or
+        addresses. Saved discoveries belong to this browser and site address;
+        another browser or app context may have separate storage. Installation
+        does not download the AI model or guarantee offline access.
+      </p>
+      <p class="muted">
+        Browser instructions:
+        <a
+          href="https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios"
+          target="_blank"
+          rel="noopener noreferrer"
+          >iPhone</a
+        >,
+        <a
+          href="https://support.apple.com/guide/ipad/open-as-web-app-ipad8f1f7a29/ipados"
+          target="_blank"
+          rel="noopener noreferrer"
+          >iPad</a
+        >,
+        <a
+          href="https://support.apple.com/en-us/104996"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Mac</a
+        >. Opening these links contacts Apple Support.
+      </p>
+    </details>
+    <p id="app-update-status" role="status"></p>
+    <button id="apply-app-update" class="secondary" type="button" hidden>
+      Apply update &amp; reload
+    </button>
+  </section>
+  <button id="manage-packs" class="secondary">Review local card packs…</button>
+  <p id="pack-load-status" role="status"></p>
+  <button id="clear-cache" class="secondary">Clear model downloads</button>
+  <details class="cache-inventory">
+    <summary>Offline files on this browser</summary>
+    <p id="cache-inventory-status" role="status">Not yet checked.</p>
+    <button id="refresh-cache-inventory" class="text-button" type="button">
+      Check cached files again
+    </button>
+    <p class="muted">
+      File presence is not a successful offline run. Model bytes are not checked
+      here; runtime hashes are. Browsers can remove caches. If AI fails, browse
+      the authored field guide. Clearing model downloads keeps your notebook.
+    </p>
+  </details>
+  <p id="cache-message" role="status"></p>
+  <button id="clear-personal" class="text-button">
+    Remove personal records…
+  </button>
+</dialog>
+<dialog id="guide" aria-labelledby="guide-title">
+  <div class="dialog-tools">
+    <button
+      class="dialog-close"
+      id="close-guide"
+      aria-label="Close field guide"
+    >
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">REVIEWABLE TASKS. A WORLD OF SMALL DETAILS.</p>
+  <h2 id="guide-title">A small field guide.</h2>
+  <p>
+    Choose an authored field note. No AI or model download. A familiar note can
+    reveal something new.
+  </p>
+  <label class="local-search" for="guide-search"
+    >Search field notes
+    <input
+      id="guide-search"
+      type="search"
+      placeholder="Title, description or tag"
+      autocomplete="off"
+    />
+  </label>
+  <button id="guide-search-clear" class="text-button" type="button" hidden>
+    Clear search
+  </button>
+  <label class="guide-filter"
+    ><input id="guide-all" type="checkbox" /> Show all authored tasks</label
+  >
+  <p id="guide-summary" class="muted" role="status"></p>
+  <details class="composition-builder">
+    <summary>Compose a reviewed observation</summary>
+    <div
+      id="compose-presets"
+      class="collection-chips"
+      aria-label="Reviewed combinations"
+    ></div>
+    <p class="compose-intro">
+      Four reviewed plans. Five minutes. One safe spot. No AI.
+    </p>
+    <details id="compose-customize">
+      <summary>Customize these ingredients</summary>
+      <label for="compose-lens">Lens</label
+      ><select id="compose-lens">
+        <option value="edges">Edges &amp; boundaries</option>
+        <option value="texture">Surfaces &amp; texture</option>
+      </select>
+      <label for="compose-action">Action</label
+      ><select id="compose-action">
+        <option value="compare">Compare two details</option>
+        <option value="trace-with-eyes">Follow a line with your eyes</option>
+      </select>
+      <p class="muted">
+        Constraint: one safe spot, seated or standing. No touching or moving
+        closer.
+      </p>
+      <label for="compose-trace">Bring back</label
+      ><select id="compose-trace">
+        <option value="one-line-contrast">One contrast sentence</option>
+        <option value="one-line-shape">
+          One imagined mark or shape sentence
+        </option>
+        <option value="two-words">Two describing words</option>
+      </select>
+    </details>
+    <p id="compose-status" role="status"></p>
+    <div
+      id="compose-alternatives"
+      class="collection-chips"
+      aria-label="Reviewed alternatives"
+      hidden
+    ></div>
+    <section
+      id="compose-preview"
+      class="compose-preview"
+      aria-labelledby="compose-preview-title"
+      hidden
+    >
+      <p class="eyebrow">YOUR REVIEWED POCKET PLAN</p>
+      <h3 id="compose-preview-title"></h3>
+      <ol id="compose-preview-steps"></ol>
+      <p id="compose-preview-trace"></p>
+      <details>
+        <summary>Modules &amp; source review</summary>
+        <p id="compose-receipt"></p>
+      </details>
+    </section>
+    <button id="compose-open" class="secondary" type="button">
+      Open reviewed card
+    </button>
+  </details>
+  <div id="guide-list" class="guide-list"></div>
+  <p id="guide-empty" class="muted" hidden>
+    No field notes match. Clear the search or show all authored tasks.
+  </p>
+  <button id="guide-expand" class="secondary" type="button" hidden>
+    Search all 20 authored notes
+  </button>
+</dialog>
+<dialog id="departure" aria-labelledby="departure-title">
+  <p class="eyebrow">YOU HAVE EVERYTHING YOU NEED</p>
+  <h2 id="departure-title">Three cues. Then the world.</h2>
+  <p id="departure-card"></p>
+  <ol id="departure-cues" class="departure-cues"></ol>
+  <details class="full-steps">
+    <summary>Read the full steps again</summary>
+    <p id="departure-steps"></p>
+  </details>
+  <p class="muted">
+    You can close this screen now. No timer. No streak. Nothing to check.
+  </p>
+  <p class="muted">
+    If you return with a detail, Write one discovery can keep a line here.
+    Leaving this screen never marks the task done.
+  </p>
+  <p id="trip-start-status" role="status">
+    Start keeps only this card identity locally. No intent, location, timer or
+    completion is stored.
+  </p>
+  <button id="start-trip" class="primary" type="button">
+    Start this trip · keep it locally
+  </button>
+  <div id="trip-replace" hidden>
+    <p id="trip-replace-text"></p>
+    <button id="trip-replace-confirm" class="secondary" type="button">
+      Replace kept trip
+    </button>
+    <button id="trip-replace-cancel" class="text-button" type="button">
+      Keep previous trip
+    </button>
+  </div>
+  <button id="return-from-trip" class="secondary" type="button">
+    I’m back — keep one discovery
+  </button>
+  <button id="back" class="secondary">Back to my card</button>
+</dialog>
+
+<dialog id="discovery-editor" aria-labelledby="discovery-title">
+  <div class="dialog-tools">
+    <button
+      id="close-discovery"
+      class="dialog-close"
+      aria-label="Close discovery editor"
+    >
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">A SMALL THING, KEPT BY YOU</p>
+  <h2 id="discovery-title">One thing you noticed.</h2>
+  <p id="discovery-task" class="discovery-task-name"></p>
+  <form id="discovery-form">
+    <div class="editor-fields">
+      <label for="discovery-text" id="discovery-prompt"></label
+      ><textarea
+        id="discovery-text"
+        rows="3"
+        maxlength="280"
+        placeholder="The railing’s shadow bent where a leaf interrupted it."
+        required
+      ></textarea>
+      <p id="discovery-count" class="muted">0 / 280</p>
+      <div
+        id="writing-starters"
+        class="writing-starters"
+        aria-label="Optional writing starters"
+      >
+        <button type="button" data-starter="I noticed ">I noticed…</button>
+        <button type="button" data-starter="A small detail was ">
+          A small detail…
+        </button>
+        <button type="button" data-starter="Next time I want to notice ">
+          Next time…
+        </button>
+      </div>
+      <label for="discovery-scene"
+        >Scene <span class="muted">Optional · chosen by you</span></label
+      >
+      <select id="discovery-scene">
+        <option value="">Unclassified</option>
+        <option value="street">Street</option>
+        <option value="park">Park</option>
+        <option value="garden">Garden</option>
+        <option value="water">Waterside</option>
+      </select>
+      <fieldset>
+        <legend>Tags <span class="muted">Optional · up to three</span></legend>
+        <div id="discovery-tags" class="discovery-tags"></div>
+      </fieldset>
+      <label id="done-with-note" class="done-with-note"
+        ><input id="note-done" type="checkbox" checked /> Also mark this task
+        done by me</label
+      >
+    </div>
+    <div class="editor-actions">
+      <p id="discovery-message" role="status"></p>
+      <button id="save-discovery" class="primary" type="submit">
+        Save discovery on this browser</button
+      ><button id="discard-discovery" class="text-button" type="button">
+        Discard draft
+      </button>
+    </div>
+  </form>
+  <details class="editor-privacy">
+    <summary>Only Save keeps your discovery</summary>
+    <p class="muted">
+      Your chosen discovery text can be in any language; AI matching uses
+      English. Only Save stores it here. No upload or proof required. Clearing
+      browser data can remove it.
+    </p>
+  </details>
+</dialog>
+<dialog id="notebook" class="notebook-dialog" aria-labelledby="notebook-title">
+  <div class="dialog-tools">
+    <button
+      id="close-notebook"
+      class="dialog-close"
+      aria-label="Close notebook"
+    >
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">THE ORDINARY, NEWLY NOTICED</p>
+  <h2 id="notebook-title">Your discoveries.</h2>
+  <p id="notebook-summary"></p>
+  <p id="notebook-problem" role="status"></p>
+  <details
+    id="notebook-collection"
+    class="notebook-collection"
+    aria-label="Saved collection"
+    hidden
+  >
+    <summary id="collection-summary"></summary>
+    <p class="eyebrow">SMALL THINGS, KEPT</p>
+    <div
+      id="collection-scenes"
+      class="collection-chips"
+      aria-label="Scene collections"
+    ></div>
+    <p class="muted">
+      Scene categories describe your choice, not a place. No streaks or
+      automatic change detection.
+    </p>
+  </details>
+  <section
+    id="raw-rescue-panel"
+    class="raw-rescue-panel"
+    hidden
+    aria-label="Unverified raw data rescue / 未验证原始数据救援"
+  >
+    <p>
+      Keep a raw copy before repair. It contains personal stored text, not a
+      verified restorable backup. Nothing is uploaded.
+    </p>
+    <p lang="zh">
+      可先保存待修复的原始数据副本，内含个人存储内容，未经恢复验证，不会上传。
+    </p>
+    <button id="prepare-raw-rescue" class="secondary" type="button">
+      Prepare raw rescue / 准备原始数据救援
+    </button>
+    <p id="raw-rescue-status" role="status"></p>
+  </section>
+  <div id="notebook-draft" class="notebook-draft" hidden>
+    <p id="notebook-draft-status"></p>
+    <button id="resume-discovery" class="secondary" type="button">
+      Continue draft
+    </button>
+  </div>
+  <label class="local-search" for="notebook-search"
+    >Search discoveries
+    <input
+      id="notebook-search"
+      type="search"
+      placeholder="Words, task, tags or scene"
+      autocomplete="off"
+    />
+  </label>
+  <details id="notebook-tools" class="notebook-tools">
+    <summary>Filter &amp; compare</summary>
+    <div class="notebook-filters">
+      <label for="notebook-lens"
+        >Lens<br /><select id="notebook-lens">
+          <option value="any">All lenses</option>
+          <option value="sound">Sound &amp; distance</option>
+          <option value="perspective">A different view</option>
+          <option value="change">Small changes</option>
+          <option value="texture">Surfaces &amp; texture</option>
+          <option value="edges">Edges &amp; boundaries</option>
+        </select></label
+      >
+      <label for="notebook-month"
+        >Month (UTC)<br /><select id="notebook-month">
+          <option value="any">All months</option>
+        </select></label
+      >
+      <label for="notebook-sort"
+        >Order<br /><select id="notebook-sort">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="edited">Recently edited first</option>
+        </select></label
+      >
+      <label for="notebook-filter"
+        >Tag<br /><select id="notebook-filter">
+          <option value="any">All discoveries</option>
+          <option>light</option>
+          <option>sound</option>
+          <option>texture</option>
+          <option>movement</option>
+          <option>change</option>
+          <option>edges</option>
+        </select></label
+      >
+      <label for="notebook-scene"
+        >Scene<br /><select id="notebook-scene">
+          <option value="any">All scenes</option>
+          <option value="unclassified">Unclassified</option>
+          <option value="street">Street</option>
+          <option value="park">Park</option>
+          <option value="garden">Garden</option>
+          <option value="water">Waterside</option>
+        </select></label
+      >
+      <label for="notebook-from"
+        >From date (UTC)<br /><input id="notebook-from" type="date"
+      /></label>
+      <label for="notebook-to"
+        >Through date (UTC)<br /><input id="notebook-to" type="date"
+      /></label>
+    </div>
+    <button id="clear-note-filters" class="text-button">Clear filters</button>
+    <section class="notebook-comparison" aria-labelledby="compare-title">
+      <h3 id="compare-title">Look back, side by side.</h3>
+      <p class="muted">
+        Choose two visible discoveries. You decide which is “Previous” and “This
+        time”. Scene categories do not identify a place; no change is inferred.
+      </p>
+      <div class="comparison-choices">
+        <label for="compare-previous"
+          >Previous · your choice<br /><select id="compare-previous">
+            <option value="">Choose a discovery</option>
+          </select></label
+        >
+        <label for="compare-current"
+          >This time · your choice<br /><select id="compare-current">
+            <option value="">Choose a different discovery</option>
+          </select></label
+        >
+      </div>
+      <div class="comparison-actions">
+        <button id="swap-comparison" class="text-button" type="button" disabled>
+          Swap previous &amp; this time
+        </button>
+        <button id="clear-comparison" class="text-button">
+          Clear comparison
+        </button>
+        <button id="compare-boundaries" class="text-button" type="button">
+          Compare earliest &amp; latest visible
+        </button>
+      </div>
+      <p id="comparison-status" role="status"></p>
+      <div id="comparison-notes" class="comparison-notes" hidden></div>
+    </section>
+  </details>
+  <details class="notebook-backup">
+    <summary>Back up &amp; restore</summary>
+    <p>
+      Download your saved notes, task snapshots and preferences as JSON. Keep
+      the file somewhere you control; unsaved drafts are excluded. Nothing is
+      uploaded.
+    </p>
+    <button id="export-notebook" class="secondary">Download JSON backup</button>
+    <button id="export-notebook-text" class="text-button" type="button">
+      Download all saved notes as TXT
+    </button>
+    <p class="muted">A readable copy. Use JSON to restore your notebook.</p>
+    <button id="choose-backup" class="text-button">
+      Choose a JSON backup to restore…
+    </button>
+    <button id="cancel-backup-read" class="text-button" type="button" hidden>
+      Stop waiting for this file
+    </button>
+    <input
+      id="restore-file"
+      type="file"
+      accept=".json,application/json"
+      hidden
+    />
+    <p id="backup-status" role="status"></p>
+  </details>
+  <p id="notebook-filter-status" role="status"></p>
+  <div id="notebook-view-context" class="notebook-view-context" hidden>
+    <p id="active-note-filters"></p>
+    <p id="notebook-view-summary"></p>
+    <button id="clear-view-filters" class="text-button" type="button">
+      Show all saved notes
+    </button>
+  </div>
+  <p id="notebook-status" role="status"></p>
+  <div id="family-view" class="notebook-view-context" hidden>
+    <p id="family-view-label"></p>
+    <button id="clear-family-view" class="text-button" type="button">
+      Show all task families
+    </button>
+  </div>
+  <details id="note-selection-tools" class="notebook-tools" hidden>
+    <summary>Choose saved notes to take with you</summary>
+    <p class="muted">
+      Nothing is selected by default. This output includes private discoveries;
+      public card sharing stays separate.
+    </p>
+    <button id="select-visible-notes" class="text-button" type="button">
+      Select notes in this view
+    </button>
+    <button id="clear-selected-notes" class="text-button" type="button">
+      Clear selection
+    </button>
+    <p id="selected-notes-status" role="status"></p>
+    <button
+      id="prepare-selected-notes"
+      class="secondary"
+      type="button"
+      disabled
+    >
+      Preview selected private notes
+    </button>
+  </details>
+  <button id="undo-discovery" class="secondary" hidden>
+    Undo last deletion
+  </button>
+  <button
+    id="notebook-density"
+    class="text-button"
+    type="button"
+    aria-pressed="false"
+    hidden
+  >
+    Use compact view
+  </button>
+  <div id="notebook-list" class="notebook-list"></div>
+  <div class="notebook-empty">
+    <p id="notebook-empty">Keep one thing you noticed after a field trip.</p>
+    <button id="notebook-start" class="secondary" type="button" hidden>
+      Browse field notes
+    </button>
+  </div>
+  <button id="notebook-tools-jump" class="text-button" type="button">
+    Back to search &amp; filters ↑
+  </button>
+  <details class="notebook-about">
+    <summary>About this notebook</summary>
+    <p class="muted">
+      Up to 100 discoveries on this browser. JSON backups stay with you; there
+      is no cloud sync. Deleting a discovery keeps completion preferences; clear
+      those separately to reset suggestions.
+    </p>
+    <p class="muted">
+      Saved task snapshots are notebook data. Revisit opens the current authored
+      guide; restored snapshots never become new recommendations.
+    </p>
+  </details>
+</dialog>
+<dialog id="raw-rescue-dialog" aria-labelledby="raw-rescue-title">
+  <h2 id="raw-rescue-title">
+    Raw notebook rescue <span lang="zh">/ 原始笔记救援</span>
+  </h2>
+  <p>
+    This TXT file wraps the exact stored string in a labeled envelope. It needs
+    review or repair with a compatible version; do not import it as a notebook
+    backup.
+  </p>
+  <p lang="zh">
+    TXT
+    文件以明确标记的封装保留原始存储字符串，需审查或由兼容版本修复，不能当作已验证的笔记备份导入。
+  </p>
+  <p class="muted">
+    No edits, migration or clearing. Unsaved drafts are excluded. Up to 2 MiB;
+    oversized data is never shortened.
+  </p>
+  <p class="muted" lang="zh">
+    不会修改、迁移或清空；不含未保存草稿。文件上限 2 MiB，超限不会截断。
+  </p>
+  <p id="raw-rescue-file-name" class="muted"></p>
+  <p id="raw-rescue-error" role="status"></p>
+  <div class="raw-rescue-actions">
+    <button id="cancel-raw-rescue" class="secondary" type="button">
+      Cancel / 取消
+    </button>
+    <button id="download-raw-rescue" class="primary" type="button" disabled>
+      Request rescue download / 请求救援下载
+    </button>
+  </div>
+</dialog>
+<dialog id="restore-notebook" aria-labelledby="restore-title">
+  <p class="eyebrow">LOCAL JSON RESTORE</p>
+  <h2 id="restore-title">Choose what to keep.</h2>
+  <p>
+    Supported backups only · up to 1 MiB and 100 discoveries. No records change
+    until you confirm. Imported text is displayed literally; snapshots cannot
+    add tasks to the guide.
+  </p>
+  <fieldset class="restore-modes">
+    <legend>Restore discoveries</legend>
+    <label
+      ><input
+        id="restore-merge"
+        type="radio"
+        name="restore-mode"
+        value="merge"
+        checked
+      />
+      Merge · keep current same-ID records</label
+    >
+    <label
+      ><input
+        id="restore-replace"
+        type="radio"
+        name="restore-mode"
+        value="replace"
+      />
+      Replace · use the backup's discoveries</label
+    >
+  </fieldset>
+  <label class="done-with-note"
+    ><input id="restore-preferences" type="checkbox" /> Also replace completed
+    and set-aside preferences with this backup</label
+  >
+  <p id="restore-preferences-detail" class="muted"></p>
+  <p id="restore-file-identity" class="muted"></p>
+  <p id="restore-summary" role="status"></p>
+  <details>
+    <summary>Review all imported discoveries and task snapshots</summary>
+    <div id="restore-sample"></div>
+  </details>
+  <details id="restore-removed-review" hidden>
+    <summary>Current discoveries absent from replacement</summary>
+    <div id="restore-removed"></div>
+  </details>
+  <label id="restore-replace-confirmation" class="done-with-note" hidden
+    ><input id="restore-replace-ack" type="checkbox" /> I understand this
+    replaces my current discoveries. I can cancel and download a backup
+    first.</label
+  >
+  <p id="restore-error" role="status"></p>
+  <button id="cancel-restore" class="secondary">
+    Cancel · keep current records
+  </button>
+  <button id="confirm-restore" class="text-button">Merge discoveries</button>
+</dialog>
+<dialog id="clear-personal-dialog" aria-labelledby="clear-personal-title">
+  <p class="eyebrow">PERSONAL RECORDS</p>
+  <h2 id="clear-personal-title">Remove your local records?</h2>
+  <p id="clear-personal-count"></p>
+  <p>
+    Existing discoveries leave this browser. You can recover them only from a
+    JSON backup you kept. Cancel keeps them.
+  </p>
+  <p id="personal-clear-message" role="status"></p>
+  <button id="cancel-personal-clear" class="secondary">Keep my records</button
+  ><button id="confirm-personal-clear" class="text-button">
+    Remove personal records
+  </button>
+</dialog>
+
+<dialog id="card-packs" aria-labelledby="packs-title">
+  <div class="dialog-tools">
+    <button id="close-packs" class="dialog-close" aria-label="Close card packs">
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">LOCAL FILES · REVIEW ONLY</p>
+  <h2 id="packs-title">A pocket-sized card pack.</h2>
+  <p>
+    Download the four reviewed visual cards, or preview a local JSON pack. One
+    review pack can be kept here. Imported text is not approved for an activity
+    and never enters the original 20-card guide or AI pool.
+  </p>
+  <p id="pack-status" role="status"></p>
+  <section id="pack-controls" aria-label="Card-pack files">
+    <p id="pack-stored-summary"></p>
+    <button id="export-reviewed-pack" class="secondary">
+      Download reviewed four-card JSON
+    </button>
+    <button id="share-reviewed-pack" class="secondary" type="button">
+      Share reviewed JSON…
+    </button>
+    <button id="print-reviewed-pack" class="secondary" type="button">
+      Print reviewed cards
+    </button>
+    <button id="choose-pack" class="text-button">
+      Choose a card-pack JSON…
+    </button>
+    <button id="review-stored-pack" class="secondary" type="button" disabled>
+      Review stored pack
+    </button>
+    <button id="remove-stored-pack" class="text-button" type="button" disabled>
+      Remove stored review pack…
+    </button>
+    <button id="rescue-stored-pack" class="text-button" type="button" disabled>
+      Keep an unverified raw pack copy…
+    </button>
+    <button id="export-stored-pack" class="secondary" disabled>
+      Download stored review pack
+    </button>
+    <input id="pack-file" type="file" accept=".json,application/json" hidden />
+    <p class="muted">
+      Supported private safe-stationary format only · 1 MiB maximum · up to 24
+      declared cards and four supported module identities. JSON stays local.
+      Browser data removal can lose the stored pack; keep a download. Notebook
+      backups use a separate format and are not accepted here.
+    </p>
+  </section>
+  <section id="pack-preview" hidden aria-label="Import preview">
+    <h3 id="pack-preview-heading" tabindex="-1"></h3>
+    <p id="pack-preview-meta"></p>
+    <p id="pack-conflict-summary"></p>
+    <button id="export-before-replace" class="secondary" hidden>
+      Download current pack before replacing
+    </button>
+    <button id="cancel-pack" class="secondary">
+      Cancel · keep current pack
+    </button>
+    <div id="pack-preview-cards"></div>
+    <label id="pack-replace-confirmation" class="done-with-note" hidden
+      ><input id="pack-replace-ack" type="checkbox" /> I understand this
+      replaces only the stored review pack. My notebook and original guide are
+      kept.</label
+    >
+    <button id="cancel-pack-bottom" class="secondary">
+      Cancel · keep current pack
+    </button>
+    <button id="confirm-pack" class="primary">Keep review pack locally</button>
+  </section>
+</dialog>
+
+<dialog id="remove-pack-dialog" aria-labelledby="remove-pack-title">
+  <h2 id="remove-pack-title">Remove this stored review pack?</h2>
+  <p id="remove-pack-detail"></p>
+  <p>
+    Your notebook, original guide, saved activity and model downloads stay.
+    Download the pack first if you want a copy.
+  </p>
+  <label
+    ><input type="checkbox" id="remove-pack-ack" /> I want to remove this one
+    stored review pack.</label
+  >
+  <p id="remove-pack-status" role="status"></p>
+  <button id="cancel-remove-pack" class="secondary" type="button">
+    Keep stored pack</button
+  ><button id="confirm-remove-pack" class="primary" type="button" disabled>
+    Remove stored pack
+  </button>
+</dialog>
+<dialog id="rescue-pack-dialog" aria-labelledby="rescue-pack-title">
+  <h2 id="rescue-pack-title">Keep an unverified raw pack copy</h2>
+  <p>
+    This contains literal stored text, which may include private words. It is
+    not a supported import or approved activity. No data is repaired, uploaded
+    or removed.
+  </p>
+  <textarea
+    id="rescue-pack-text"
+    readonly
+    aria-label="Unverified stored pack text"
+  ></textarea>
+  <label
+    ><input type="checkbox" id="rescue-pack-ack" /> I want a local unverified
+    text copy.</label
+  >
+  <p id="rescue-pack-status" role="status"></p>
+  <button id="cancel-rescue-pack" class="secondary" type="button">Cancel</button
+  ><button id="download-rescue-pack" class="primary" type="button" disabled>
+    Request raw pack download
+  </button>
+</dialog>
+
+<dialog id="card-text-dialog" aria-labelledby="card-text-title">
+  <div class="dialog-heading">
+    <h2 id="card-text-title">Your pocket card as text</h2>
+    <button
+      id="close-card-text"
+      class="text-button"
+      aria-label="Close card text"
+    >
+      Close
+    </button>
+  </div>
+  <label for="card-text">Full steps, cues and safety notes</label>
+  <textarea id="card-text" readonly spellcheck="false"></textarea>
+  <button id="copy-card-text" class="secondary">Copy text</button>
+  <button id="download-card-text" class="text-button" type="button">
+    Download this card as TXT
+  </button>
+  <button id="native-share-card" class="text-button" type="button">
+    Open device share chooser
+  </button>
+  <p id="card-text-status" role="status">
+    You can also select this text and copy it yourself.
+  </p>
+</dialog>
+<dialog id="feedback-choice" aria-labelledby="feedback-choice-title">
+  <h2 id="feedback-choice-title">What doesn’t fit?</h2>
+  <p id="feedback-card-title"></p>
+  <label for="feedback-reason">Optional reason</label>
+  <select id="feedback-reason">
+    <option value="other">Not my kind of observation</option>
+    <option value="environment">Not available around me</option>
+    <option value="movement">This action is not comfortable here</option>
+    <option value="recent">I already did this recently</option>
+  </select>
+  <p id="feedback-scope" role="status"></p>
+  <div class="output-actions">
+    <button id="cancel-feedback-choice" class="text-button" type="button">
+      Cancel</button
+    ><button id="confirm-feedback-choice" class="secondary" type="button">
+      Set family aside
+    </button>
+  </div>
+</dialog>
+<dialog id="selected-notes-dialog" aria-labelledby="selected-notes-title">
+  <h2 id="selected-notes-title">Your selected discoveries.</h2>
+  <p>Private words, deliberately chosen. No automatic sharing.</p>
+  <label for="selected-note-text">Exact readable preview</label
+  ><textarea id="selected-note-text" readonly spellcheck="false"></textarea>
+  <div class="output-actions">
+    <button id="close-selected-notes" class="text-button" type="button">
+      Close preview</button
+    ><button id="download-selected-notes" class="secondary" type="button">
+      Download selected TXT</button
+    ><button id="print-selected-notes" class="text-button" type="button">
+      Print selected private notes
+    </button>
+  </div>
+  <p id="selected-output-status" role="status"></p>
+</dialog>
+<dialog
+  id="appearance-dialog"
+  aria-labelledby="appearance-title"
+  aria-describedby="appearance-intro"
+>
+  <div class="dialog-tools">
+    <button
+      class="dialog-close"
+      id="appearance-close"
+      type="button"
+      aria-label="Close appearance"
+    >
+      ×
+    </button>
+  </div>
+  <p class="eyebrow">A LITTLE CHANGE OF SCENERY</p>
+  <h2 id="appearance-title">Appearance</h2>
+  <p id="appearance-intro">Find your kind of paper.</p>
+  <fieldset class="appearance-choices">
+    <legend>Colour theme</legend>
+    <div class="appearance-options">
+      <label class="appearance-option"
+        ><input
+          type="radio"
+          name="appearance-theme"
+          value="forest"
+          checked
+        /><span
+          class="appearance-swatch swatch-forest"
+          aria-hidden="true"
+        ></span
+        ><span><b>Forest</b><small>Cream paper</small></span
+        ><span class="appearance-check" aria-hidden="true">✓</span></label
+      >
+      <label class="appearance-option"
+        ><input type="radio" name="appearance-theme" value="tidal" /><span
+          class="appearance-swatch swatch-tidal"
+          aria-hidden="true"
+        ></span
+        ><span><b>Tidal</b><small>Mist blue</small></span
+        ><span class="appearance-check" aria-hidden="true">✓</span></label
+      >
+      <label class="appearance-option"
+        ><input type="radio" name="appearance-theme" value="clay" /><span
+          class="appearance-swatch swatch-clay"
+          aria-hidden="true"
+        ></span
+        ><span><b>Clay</b><small>Warm earth</small></span
+        ><span class="appearance-check" aria-hidden="true">✓</span></label
+      >
+    </div>
+  </fieldset>
+  <label class="appearance-depth-control"
+    ><input
+      type="checkbox"
+      id="appearance-depth"
+      aria-describedby="appearance-depth-hint appearance-status"
+    /><span
+      ><b>3D cards</b
+      ><small id="appearance-depth-hint"
+        >A little paper depth, only when you interact.</small
+      ></span
+    ></label
+  >
+  <button
+    class="appearance-specimen"
+    type="button"
+    aria-label="Try paper depth preview"
+  >
+    <span class="specimen-meta">PAPER STUDY</span
+    ><span>A small reason<br />to look up.</span
+    ><span class="specimen-corner" aria-hidden="true">↗</span>
+  </button>
+  <p id="appearance-status" role="status"></p>
+  <p
+    id="appearance-storage-status"
+    class="appearance-storage-status"
+    role="status"
+  ></p>
+</dialog>

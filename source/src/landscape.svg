@@ -1,0 +1,48 @@
+<svg
+  viewBox="0 0 680 480"
+  preserveAspectRatio="xMidYMid slice"
+  role="img"
+  aria-label="Illustrated winding path through rolling green hills under a golden sun"
+>
+  <defs>
+    <linearGradient id="field-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#70c3d6" />
+      <stop offset=".64" stop-color="#b4e4e0" />
+      <stop offset="1" stop-color="#f5e5ac" />
+    </linearGradient>
+    <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".7" fill="#253b2e" opacity=".07" />
+    </pattern>
+  </defs>
+  <path fill="url(#field-sky)" d="M0 0h680v480H0z" />
+  <circle class="field-sun" cx="525" cy="106" r="61" fill="#f5b254" />
+  <path d="M0 280Q145 138 326 243T680 197V480H0" fill="#b5ce76" />
+  <path d="M0 355Q190 205 376 312T680 260V480H0" fill="#5b9a6b" />
+  <path d="M0 440Q129 324 319 360T680 328V480H0" fill="#21634c" />
+  <path
+    d="M326 267c-88 65 85 64 28 112-30 26-36 50 43 101h-104c-57-44-47-81 10-110 68-34-33-48 23-103"
+    fill="#f8e9b6"
+  />
+  <path
+    d="m84 349 3-126m-2 58-32-21m34 2 30-28"
+    stroke="#365c47"
+    stroke-width="7"
+    fill="none"
+  />
+  <path
+    d="M40 241c-2-35 23-58 43-63 38 8 49 39 34 70-33 21-61 11-77-7"
+    fill="#708662"
+  />
+  <g fill="#d9dbb1">
+    <path d="m545 420 5-52 7 50-7-12z" />
+    <path d="m568 426 7-34 5 37-5-10z" />
+    <path d="m514 426 8-27 4 29-5-8z" />
+  </g>
+  <path
+    d="m437 153 9-4 9 4m-47-24 7-3 7 3"
+    stroke="#586b52"
+    stroke-width="2"
+    fill="none"
+  />
+  <path fill="url(#grain)" d="M0 0h680v480H0z" />
+</svg>

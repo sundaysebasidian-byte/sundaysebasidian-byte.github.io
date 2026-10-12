@@ -1,0 +1,55 @@
+.local-search {
+  display: grid;
+  gap: 7px;
+  margin: 18px 0 8px;
+}
+.local-search input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: inherit;
+}
+#guide-search-clear {
+  min-height: 44px;
+  margin-bottom: 6px;
+}
+
+#card-text-dialog {
+  width: min(580px, calc(100% - 32px));
+}
+#card-text {
+  width: 100%;
+  min-height: 170px;
+  max-height: 42dvh;
+  margin: 12px 0;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: inherit;
+  resize: vertical;
+}
+#card-text-dialog button,
+#share-card {
+  min-height: 44px;
+}
+
+#undo-card-feedback {
+  min-height: 44px;
+}
+#feedback-undo-status:empty {
+  display: none;
+}
+
+#feedback-undo-status:not(:empty) {
+  display: block;
+  margin-top: 4px;
+}

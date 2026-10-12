@@ -1,0 +1,14 @@
+{
+  "project": "Pocket Field Trip",
+  "frozenSourceCommit": "4c7728b435ed8c94edb1e1b9a210469636025e77",
+  "version": "0.3.0-android.4",
+  "sourceCopy": "source/",
+  "sourceSubset": true,
+  "applicationSourcesUnchanged": true,
+  "rootDistributionMatchesOriginalBuild": true,
+  "newApplicationBuildPerformed": false,
+  "edition": "browser demo with Android source included; native journal persistence requires packaged native app",
+  "publicationUTC": "2026-10-12",
+  "noVideoIncluded": true,
+  "noActionsWorkflowIncluded": true
+}

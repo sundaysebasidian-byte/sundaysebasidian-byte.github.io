@@ -1,0 +1,4 @@
+# Exact compact byte-boundary/input fixtures; preserve inherited file bytes.
+# Recovery tests exercise these files and generated export sizes directly.
+tests/fixtures/data-resilience-capacity.json
+tests/fixtures/data-resilience-notes.json

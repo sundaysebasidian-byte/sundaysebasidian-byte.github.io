@@ -1,0 +1,647 @@
+/* Adapted from the actual Claude generic paper sample. Screen only: the
+   accepted Arial/Georgia print layout and every selectable character stay put. */
+@media screen {
+  :root {
+    --appearance-bg: #f2f1e9;
+    --appearance-paper: #fcfaf2;
+    --appearance-ink: #203c32;
+    --appearance-muted: #536258;
+    --appearance-tone: #244b3a;
+    --appearance-edge: #647d6b;
+    --appearance-focus: #90631f;
+    --appearance-tint: #e7eddf;
+    --appearance-shade: #2449363d;
+  }
+  html[data-theme="tidal"] {
+    --appearance-bg: #eef2f6;
+    --appearance-paper: #ffffff;
+    --appearance-ink: #17222e;
+    --appearance-muted: #475667;
+    --appearance-tone: #2b587c;
+    --appearance-edge: #778b9e;
+    --appearance-focus: #143654;
+    --appearance-tint: #e3ebf3;
+    --appearance-shade: #18283c3d;
+    --ink: var(--appearance-ink);
+    --muted: var(--appearance-muted);
+    --paper: var(--appearance-paper);
+    --green: var(--appearance-tone);
+    --line: #cbd6e0;
+    --accent: var(--appearance-tint);
+    --sky: #e3ebf3;
+  }
+  html[data-theme="clay"] {
+    --appearance-bg: #f6ede5;
+    --appearance-paper: #fffaf5;
+    --appearance-ink: #2a1e18;
+    --appearance-muted: #5d483d;
+    --appearance-tone: #8f4327;
+    --appearance-edge: #947865;
+    --appearance-focus: #5a2814;
+    --appearance-tint: #f5e3d4;
+    --appearance-shade: #4624143d;
+    --ink: var(--appearance-ink);
+    --muted: var(--appearance-muted);
+    --paper: var(--appearance-paper);
+    --green: var(--appearance-tone);
+    --line: #e2d0c0;
+    --accent: var(--appearance-tint);
+    --sky: #f5e3d4;
+  }
+  .appearance-open {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 45px;
+    min-width: 45px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 24px;
+    background: transparent;
+    color: var(--ink);
+    font-size: 13px;
+  }
+  .appearance-open > span:first-child {
+    font-size: 19px;
+    line-height: 1;
+  }
+  #appearance-dialog {
+    width: min(500px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 32px);
+    padding: 20px 28px 24px;
+    overflow: auto;
+    background: var(--appearance-paper);
+    color: var(--appearance-ink);
+    border: 1px solid var(--appearance-edge);
+    border-radius: 22px;
+  }
+  #appearance-dialog .dialog-tools {
+    background: var(--appearance-paper);
+    margin-bottom: 18px;
+  }
+  #appearance-close {
+    border-color: var(--appearance-edge);
+    color: var(--appearance-ink);
+  }
+  #appearance-dialog h2 {
+    font:
+      36px/1.12 Georgia,
+      serif;
+    letter-spacing: -1px;
+    margin: 0 0 12px;
+    color: var(--appearance-ink);
+  }
+  #appearance-dialog .eyebrow,
+  #appearance-intro,
+  #appearance-status,
+  #appearance-storage-status {
+    color: var(--appearance-muted);
+  }
+  #appearance-intro {
+    margin-bottom: 24px;
+  }
+  .appearance-choices {
+    border: 0;
+    padding: 0;
+    margin: 0 0 22px;
+    min-width: 0;
+  }
+  .appearance-choices legend {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .appearance-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .appearance-option {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-content: start;
+    align-items: center;
+    gap: 14px 8px;
+    min-height: 126px;
+    padding: 14px 12px;
+    border: 1px solid var(--appearance-edge);
+    border-radius: 14px;
+    background: var(--appearance-paper);
+    color: var(--appearance-ink);
+    cursor: pointer;
+  }
+  .appearance-option > span:not(.appearance-swatch):not(.appearance-check) {
+    grid-column: 1 / -1;
+  }
+  .appearance-option input,
+  .appearance-depth-control input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    flex: 0 0 20px;
+    accent-color: var(--appearance-tone);
+  }
+  .appearance-option b,
+  .appearance-depth-control b {
+    display: block;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .appearance-option small,
+  .appearance-depth-control small {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--appearance-muted);
+    margin-top: 4px;
+  }
+  .appearance-option:has(input:checked),
+  .appearance-depth-control:has(input:checked) {
+    border-color: var(--appearance-tone);
+    box-shadow: inset 0 0 0 1px var(--appearance-tone);
+  }
+  .appearance-option:has(input:focus-visible) {
+    outline: 3px solid var(--appearance-focus);
+    outline-offset: 3px;
+  }
+  .appearance-option input:focus-visible {
+    outline: none;
+  }
+  .appearance-swatch {
+    justify-self: end;
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #516557;
+  }
+  .swatch-forest {
+    background: linear-gradient(135deg, #fcfaf2 50%, #244b3a 50%);
+  }
+  .swatch-tidal {
+    background: linear-gradient(135deg, #eef2f6 50%, #2b587c 50%);
+  }
+  .swatch-clay {
+    background: linear-gradient(135deg, #f6ede5 50%, #8f4327 50%);
+  }
+  .appearance-check {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0;
+    font-size: 13px;
+    color: var(--appearance-tone);
+  }
+  .appearance-option:has(input:checked) .appearance-check {
+    opacity: 1;
+  }
+  .appearance-depth-control {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid var(--appearance-edge);
+    border-radius: 14px;
+    cursor: pointer;
+    min-height: 70px;
+  }
+  .appearance-depth-control input {
+    margin-top: 2px;
+  }
+  .appearance-depth-control small {
+    font-size: 13px;
+  }
+  .appearance-specimen {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    width: 100%;
+    margin: 24px 0 18px;
+    padding: 18px 22px;
+    min-height: 120px;
+    text-align: left;
+    font:
+      27px/1.12 Georgia,
+      serif;
+    letter-spacing: -0.5px;
+    background: var(--appearance-paper);
+    color: var(--appearance-ink);
+    border: 1px solid var(--appearance-edge);
+    border-radius: 4px 18px 18px 4px;
+    transform: none;
+    transition: none;
+  }
+  .specimen-meta {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--appearance-muted);
+    font:
+      10px/1.4 system-ui,
+      sans-serif;
+    letter-spacing: 1.5px;
+  }
+  .specimen-corner {
+    position: absolute;
+    right: 20px;
+    bottom: 22px;
+  }
+  #appearance-status {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-block: 16px 8px;
+  }
+  #appearance-storage-status {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* Existing artwork keeps its natural pigments. Reading and control surfaces
+     get actual palette tokens; nothing is tinted with a whole-page filter. */
+  html:is([data-theme="tidal"], [data-theme="clay"]) body {
+    background: var(--appearance-bg);
+    color: var(--ink);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(header, .planner, .philosophy, footer, #journey) {
+    border-color: var(--line);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      h1 em,
+      .section-heading h2,
+      .card-hero h2,
+      .compose-preview h3,
+      .discovery-note h3,
+      .refinement-lens,
+      .collection-chips button,
+      .writing-starters button,
+      .discovery-actions button,
+      .note-tag,
+      .segmented span,
+      .places span,
+      .sample-title,
+      .text-button
+    ) {
+    color: var(--ink);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      .eyebrow,
+      .sample-meta,
+      .sample-cues,
+      .scene-label,
+      .step-index,
+      .lens-stamp,
+      .local-meta,
+      .discovery-date,
+      .discovery-meta,
+      .note-context,
+      #card-subtitle,
+      .match-detail,
+      .method-label
+    ) {
+    color: var(--muted);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      dialog,
+      .dialog-tools,
+      .sample-card,
+      .trip-card,
+      #notebook .discovery-note,
+      .compose-preview,
+      .notebook-collection,
+      .card-body,
+      .card-hero,
+      .places span,
+      .segmented input:checked + span,
+      input:not([type="radio"]):not([type="checkbox"]),
+      textarea,
+      select,
+      #intent,
+      #selected-note-text,
+      .raw-rescue-preview,
+      .scene-comparison,
+      .discovery-snapshot,
+      .note-snapshot,
+      .output-preview
+    ) {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(input, textarea, select, #intent) {
+    border-color: var(--appearance-edge);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      .segmented,
+      .suggestions button,
+      .pocket-strip,
+      .refinement-lens,
+      .lens-stamp,
+      .card-navigation,
+      .note-tag,
+      .note-scene,
+      .notebook-tools,
+      .notebook-backup,
+      .composition-builder,
+      .home-draft,
+      #feedback-scope,
+      .writing-starters button,
+      .collection-chips button,
+      .notebook-draft,
+      #journey button[aria-current="step"],
+      .departure,
+      .saved-note,
+      #notebook-count,
+      .sample-arrow,
+      #notebook,
+      .quiet-reading
+    ) {
+    background: var(--appearance-tint);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      .primary,
+      #find,
+      #go,
+      .places input:checked + span,
+      .suggestions button[aria-pressed="true"],
+      .collection-chips button[aria-pressed="true"]
+    ) {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(
+      .secondary,
+      .discovery-actions button,
+      .writing-starters button,
+      .output-actions button,
+      #previous-card,
+      #another,
+      #quiet-card,
+      #return-from-trip
+    ) {
+    color: var(--ink);
+    background: var(--paper);
+    border-color: var(--appearance-edge);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"]) .landscape {
+    background: var(--appearance-tint);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    #trip-form
+    .places
+    input:checked
+    + span,
+  html:is([data-theme="tidal"], [data-theme="clay"]) #trip-form #find,
+  html:is([data-theme="tidal"], [data-theme="clay"]) #result #go {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    #trip-form
+    .suggestions
+    button[aria-pressed="true"],
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(#collection-scenes, #compose-presets, #compose-alternatives)
+    button[aria-pressed="true"] {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  html[data-depth="off"] :is(.sample-card, .discovery-note) {
+    transition: none;
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"]) #refinements {
+    background: var(--appearance-tint);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(input, textarea)::placeholder {
+    color: var(--muted);
+    opacity: 1;
+  }
+  html[data-theme="tidal"] dialog[open]::backdrop {
+    background: #101f2f73;
+  }
+  html[data-theme="clay"] dialog[open]::backdrop {
+    background: #2e1c1066;
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"]) .discovery-note {
+    box-shadow:
+      inset 0 1px 0 var(--paper),
+      0 2px 0 var(--line),
+      0 14px 24px -22px var(--appearance-shade);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    :is(button, a, input, textarea, select, summary):focus-visible {
+    outline-color: var(--appearance-focus);
+  }
+  html:is([data-theme="tidal"], [data-theme="clay"])
+    input:is([type="radio"], [type="checkbox"]) {
+    accent-color: var(--green);
+  }
+
+  /* Text, dialog geometry and controls remain flat. Only the backing paper and
+     illustration get a bounded spatial response; the sample button previews it. */
+  html #discovery-editor,
+  html #discovery-editor[open],
+  html #discovery-editor:not([open]),
+  html[data-depth="on"] .discovery-note:hover,
+  html .discovery-note:hover {
+    transform: none;
+  }
+  html[data-depth="on"]
+    :is(
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    ) {
+    position: relative;
+    isolation: isolate;
+  }
+  html[data-depth="on"]
+    :is(
+      .sample-card,
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    )::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 6px -3px -6px 3px;
+    pointer-events: none;
+    z-index: -1;
+    border: 1px solid var(--line);
+    border-radius: inherit;
+    background: var(--paper);
+    transform-origin: 50% 100%;
+    transform: perspective(1000px) rotateX(0deg);
+    box-shadow: 0 10px 18px -12px var(--appearance-shade);
+    transition:
+      transform 180ms cubic-bezier(0.2, 0.7, 0.3, 1),
+      box-shadow 180ms ease;
+  }
+  html[data-depth="on"] .appearance-specimen {
+    transform-origin: 50% 100%;
+    box-shadow:
+      0 1px 0 var(--line),
+      0 4px 0 -2px var(--paper),
+      0 5px 0 -1px var(--line),
+      0 12px 18px -12px var(--appearance-shade);
+    transition:
+      transform 180ms cubic-bezier(0.2, 0.7, 0.3, 1),
+      box-shadow 180ms ease;
+  }
+  html[data-depth="on"]
+    :is(
+      .sample-card,
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    )
+    :is(input, textarea, select) {
+    transform: none;
+  }
+  html[data-depth="on"]
+    :is(
+      .sample-card,
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    )
+    :is(:focus-visible) {
+    scroll-margin: 16px;
+  }
+  html[data-depth="on"]
+    :is(
+      .sample-card,
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    ):is(:has(:focus-visible), [data-depth-press="true"])::after {
+    transform: perspective(1000px) rotateX(3deg) translateY(-3px);
+    box-shadow: 0 18px 24px -14px var(--appearance-shade);
+  }
+  html[data-depth="on"]
+    .appearance-specimen:is(
+      :focus-visible,
+      :active,
+      [data-depth-press="true"]
+    ) {
+    transform: perspective(900px) rotateX(4deg) translateY(-3px);
+    box-shadow: 0 20px 28px -18px var(--appearance-shade);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    html[data-depth="on"]
+      :is(
+        .sample-card,
+        .compose-preview,
+        .discovery-note,
+        .pack-preview-card,
+        .comparison-note
+      ):hover::after {
+      transform: perspective(1000px) rotateX(3deg) translateY(-3px);
+    }
+    html[data-depth="on"] .appearance-specimen:hover {
+      transform: perspective(900px) rotateX(4deg) translateY(-3px);
+    }
+  }
+  html:is(
+      [data-motion="reduced"],
+      [data-effects="simple"],
+      [data-page-visibility="hidden"]
+    )
+    .appearance-specimen {
+    transform: none;
+    transition: none;
+    box-shadow: none;
+  }
+  html:is(
+      [data-motion="reduced"],
+      [data-effects="simple"],
+      [data-page-visibility="hidden"]
+    )
+    :is(
+      .sample-card,
+      .compose-preview,
+      .discovery-note,
+      .pack-preview-card,
+      .comparison-note
+    )::after {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html .appearance-specimen {
+      transform: none;
+      transition: none;
+      box-shadow: none;
+    }
+    html
+      :is(
+        .sample-card,
+        .compose-preview,
+        .discovery-note,
+        .pack-preview-card,
+        .comparison-note
+      )::after {
+      display: none;
+    }
+  }
+  @media (max-width: 700px) {
+    .appearance-label {
+      display: none;
+    }
+    .appearance-open {
+      padding: 8px;
+    }
+  }
+  @media (max-width: 440px) {
+    header {
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+    .header-actions {
+      width: 100%;
+      justify-content: flex-end;
+      padding-block: 2px 6px;
+    }
+    #appearance-dialog {
+      padding: 16px 20px 20px;
+    }
+    .appearance-option {
+      padding: 12px 8px;
+      gap: 12px 4px;
+      min-height: 124px;
+    }
+    .appearance-option b {
+      font-size: 14px;
+    }
+    .appearance-option small {
+      font-size: 11px;
+    }
+    .appearance-swatch {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

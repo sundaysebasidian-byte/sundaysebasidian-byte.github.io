@@ -1,0 +1,11 @@
+{
+  "id": "Xenova/all-MiniLM-L6-v2",
+  "sha": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "cardData": {
+    "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "library_name": "transformers.js",
+    "license": "apache-2.0"
+  },
+  "verifiedAt": "2026-10-06 UTC",
+  "source": "https://huggingface.co/api/models/Xenova/all-MiniLM-L6-v2"
+}

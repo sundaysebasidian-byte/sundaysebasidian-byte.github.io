@@ -1,0 +1,87 @@
+{
+  "format": "pocket-field-trip-notebook",
+  "version": 2,
+  "exportedAt": "2026-10-08T13:59:17.206Z",
+  "journal": {
+    "schema": 2,
+    "entries": [
+      {
+        "id": "910c4173-8dbf-4380-b5ae-a511ab27a443",
+        "text": "Synthetic keyboard 100: an edge; an unfinished observation.",
+        "tags": [],
+        "task": {
+          "id": "edge-compare",
+          "title": "Find two kinds of edge",
+          "family": "boundaries",
+          "lens": "edges",
+          "version": "2026-10-06.modular.1",
+          "steps": [
+            "Settle in a safe spot, seated or standing, away from traffic and water’s edge. Use only what is already in view. If nothing suitable is visible, stop and choose another note; do not move closer.",
+            "Choose two visible edges where one surface meets another. Compare their shapes: which is straighter, and which has more surprises?",
+            "Look once more without moving closer. Keep one contrast in mind, or bring it back as a sentence. Leave the scene untouched."
+          ],
+          "cues": [
+            "Safe spot",
+            "Compare two",
+            "One contrast"
+          ],
+          "prompt": "Which edge was more orderly, and which surprised you?",
+          "minutes": 5,
+          "settings": [
+            "street",
+            "park",
+            "garden",
+            "water"
+          ],
+          "still": true,
+          "requires": []
+        },
+        "createdAt": "2026-10-08T13:59:16.981Z",
+        "updatedAt": "2026-10-08T13:59:16.981Z"
+      },
+      {
+        "id": "72426c19-d3e2-4c74-a593-6ba18f5c52a8",
+        "text": "Synthetic keyboard 100: a small sound, not a claimed outdoor visit. Edited by keyboard.",
+        "tags": [
+          "sound"
+        ],
+        "task": {
+          "id": "sound-map",
+          "title": "Make a sound map",
+          "family": "sound-map",
+          "lens": "sound",
+          "version": "2026-10-06.2",
+          "steps": [
+            "Find a safe place to sit or stand. Leave your headphones off.",
+            "Listen for three layers: close, across the space, and far away.",
+            "Choose the smallest sound. Follow it with your attention for one minute."
+          ],
+          "cues": [
+            "Settle",
+            "Near · far",
+            "Follow"
+          ],
+          "prompt": "What did you notice that you had been missing?",
+          "minutes": 5,
+          "settings": [
+            "street",
+            "park",
+            "garden",
+            "water"
+          ],
+          "still": true,
+          "requires": []
+        },
+        "createdAt": "2026-10-08T13:59:16.841Z",
+        "updatedAt": "2026-10-08T13:59:17.171Z",
+        "scene": "park"
+      }
+    ],
+    "feedback": {
+      "done": [
+        "sound-map"
+      ],
+      "skipped": []
+    }
+  }
+}

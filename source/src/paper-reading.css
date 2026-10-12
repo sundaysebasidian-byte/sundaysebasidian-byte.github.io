@@ -1,0 +1,131 @@
+/* A reading page and a return slip. All pigments/artwork remain the same. */
+#result .trip-card {
+  isolation: isolate;
+  overflow: visible;
+}
+#result .trip-card::before,
+#result .trip-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  border: 1px solid var(--line);
+  border-radius: inherit;
+  background: var(--paper);
+  z-index: -1;
+}
+#result .trip-card::before {
+  inset: 6px -4px -6px 4px;
+  transform: rotate(0.4deg);
+  box-shadow: 0 8px 14px -12px #334d3666;
+}
+#result .trip-card::after {
+  inset: 3px -2px -3px 2px;
+  transform: rotate(-0.25deg);
+}
+#result .card-hero {
+  padding: 20px 28px 16px;
+}
+#result .card-art-row {
+  margin-block: 10px 4px;
+  min-height: 36px;
+}
+#result .card-icon {
+  margin: 0;
+}
+#result .card-icon svg {
+  width: 36px;
+  height: 36px;
+}
+#result .lens-stamp {
+  max-width: calc(100% - 48px);
+  padding: 6px 10px;
+  width: auto;
+}
+#result .card-hero h2 {
+  margin-block: 9px 8px;
+}
+#result #card-subtitle {
+  margin-bottom: 0;
+}
+#result .card-body {
+  padding-top: 18px;
+}
+#result .steps-heading {
+  margin: 18px 0 0;
+}
+#result #steps {
+  margin-block: 12px 18px;
+}
+#result #steps li {
+  margin: 0;
+  padding-block: 11px;
+  gap: 12px;
+  line-height: 1.65;
+}
+#result .pocket-strip {
+  padding: 14px;
+}
+#result #pocket-cues {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+#result #pocket-cues li {
+  font-size: 14px;
+  overflow-wrap: break-word;
+}
+#result .trip-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(112px, 0.65fr);
+  gap: 8px;
+  margin: 20px 0 16px;
+}
+#result .trip-actions button {
+  min-height: 45px;
+  min-width: 0;
+  padding: 12px;
+  font-size: 15px;
+}
+#result .departure {
+  position: relative;
+  border-radius: 4px 24px 8px 4px;
+  box-shadow: 4px 6px 0 -2px #d5d7c6;
+}
+#result .departure::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 0 20px 0 3px;
+  background: linear-gradient(225deg, #f2f1e9 48%, #d5d7c6 49%, #fcfaf2 56%);
+}
+#result .departure > .eyebrow {
+  margin-bottom: 10px;
+}
+#result .departure h3 {
+  margin-bottom: 12px;
+}
+#result .departure > p:not(.eyebrow) {
+  margin-bottom: 14px;
+}
+@media (max-width: 700px) {
+  #result .card-hero {
+    padding: 16px 18px;
+  }
+  #result .card-body {
+    padding-top: 16px;
+  }
+  #result .trip-actions {
+    grid-template-columns: minmax(0, 1fr) minmax(98px, 0.65fr);
+  }
+  #result .trip-actions button {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+}

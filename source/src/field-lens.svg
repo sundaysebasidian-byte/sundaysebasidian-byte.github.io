@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="specimen-sky" x2="0" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#d2e1de"/><stop offset="1" stop-color="#eeeee1"/></linearGradient>
+    <linearGradient id="specimen-rim" x1="260" y1="40" x2="546" y2="316" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset=".36" stop-color="#b7c9bd"/><stop offset=".55" stop-color="#fffef4"/><stop offset=".78" stop-color="#8ba99b"/><stop offset="1" stop-color="#eef6e9"/></linearGradient>
+    <radialGradient id="specimen-glass"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".72" stop-color="#fff" stop-opacity=".07"/><stop offset=".95" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#f0fffc" stop-opacity=".65"/></radialGradient>
+    <clipPath id="specimen-lens"><circle cx="420" cy="165" r="127"/></clipPath>
+  </defs>
+  <path d="M40 354C189 319 324 350 484 363" stroke="#688d7b" stroke-opacity=".15" stroke-width="22" stroke-linecap="round"/>
+  <g transform="rotate(-8 307 208)">
+    <rect x="167" y="83" width="307" height="253" rx="6" fill="#b7c2ac"/>
+    <rect x="159" y="70" width="307" height="253" rx="6" fill="#e7e4d3" stroke="#c2bfae"/>
+    <rect x="151" y="57" width="307" height="253" rx="6" fill="#faf8ee" stroke="#c8c7b8"/>
+    <path d="M172 76h122M172 87h76M172 273h260M172 285h119" stroke="#b7b6a4" stroke-width="1"/>
+    <path d="M215 269C249 209 285 149 317 114" stroke="#425d46" stroke-width="3"/>
+    <path d="M245 219C195 216 193 169 211 169C241 171 248 201 245 219Z" fill="#698a57"/>
+    <path d="M263 188C279 153 329 160 319 181C303 202 279 200 263 188Z" fill="#90a878"/>
+    <path d="M283 156C251 146 263 107 277 111C292 119 300 140 283 156Z" fill="#4d7153"/>
+    <path d="M236 232C259 210 300 215 293 234C278 259 248 251 236 232Z" fill="#a4b482"/>
+    <path d="M309 125C307 91 336 76 341 91C345 108 329 125 309 125Z" fill="#758e63"/>
+  </g>
+  <circle cx="422" cy="173" r="139" fill="#314e43" fill-opacity=".10"/>
+  <circle cx="420" cy="165" r="139" fill="url(#specimen-rim)" stroke="#fffef4" stroke-width="2"/>
+  <g clip-path="url(#specimen-lens)">
+    <path d="M293 38h254v254H293z" fill="url(#specimen-sky)"/>
+    <path d="M292 222C355 182 402 221 449 187C487 161 515 195 554 182V312H292Z" fill="#a7b7a0"/>
+    <path d="M289 255C381 223 418 255 459 225C494 201 526 225 552 218V312H289Z" fill="#6d8c70"/>
+    <path d="M355 325C388 239 416 167 442 101" stroke="#294c3a" stroke-width="4"/>
+    <path d="M397 218C350 206 346 158 364 154C392 157 404 193 397 218Z" fill="#345f46"/>
+    <path d="M415 176C448 135 493 141 484 169C471 198 434 195 415 176Z" fill="#9eae72"/>
+    <path d="M433 128C407 103 410 65 427 72C449 78 451 104 433 128Z" fill="#678855"/>
+    <path d="M392 240C419 209 470 211 461 237C440 266 413 258 392 240Z" fill="#c0c18b"/>
+    <path d="M453 80C453 59 467 45 476 53C483 68 470 86 453 80Z" fill="#698257"/>
+    <path d="M398 217L365 160M416 176L476 163M392 240L450 232" stroke="#d8ddaf" stroke-opacity=".55"/>
+    <circle cx="420" cy="165" r="127" fill="url(#specimen-glass)"/>
+    <path d="M322 101C345 62 381 45 419 47" stroke="#fffef4" stroke-opacity=".75" stroke-width="4" stroke-linecap="round"/>
+    <path d="M461 276C506 257 531 218 534 180" stroke="#fffef4" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <circle cx="420" cy="165" r="128" stroke="#4c7464" stroke-opacity=".25"/>
+  <path d="M332 280L285 345" stroke="#e8ede4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M330 280L283 345" stroke="#fffdf3" stroke-width="10" stroke-linecap="round"/>
+  <path d="M43 89h40M63 69v40M557 333h24M569 321v24" stroke="#879584" stroke-width="1"/>
+  <circle cx="81" cy="329" r="4" fill="#b7754d"/>
+  <path d="M46 302l27-7M55 316l17-8" stroke="#728968" stroke-width="2"/>
+</svg>

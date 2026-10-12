@@ -1,0 +1,206 @@
+{
+  "format": "pocket-field-trip-card-pack",
+  "schema": 1,
+  "publicationStatus": "private-draft",
+  "packId": "visual-stationary-draft",
+  "version": "0.1.0-draft.1",
+  "language": "en",
+  "title": "Four ways to notice a visible detail",
+  "description": "Private source-review example: compare or eye-trace visible edges and surface patterns from one safe seated or standing spot. Not an approved public family/teacher pack or a field-tested result.",
+  "author": {
+    "name": "Pocket Field Trip project author (confirmation pending)",
+    "confirmation": "pending-owner-confirmation"
+  },
+  "licenseProposal": {
+    "spdx": "MIT",
+    "approval": "pending-publication-approval"
+  },
+  "compatibility": {
+    "appSourceVersion": "0.2.0-rc.3",
+    "moduleVersion": "2026-10-06.modular.1",
+    "profile": "safe-stationary-v1"
+  },
+  "reviewClaim": {
+    "scope": "source-only",
+    "record": "MODULAR-INDEPENDENT-SOURCE-REVIEW.md",
+    "trust": "untrusted-until-local-review"
+  },
+  "cards": [
+    {
+      "id": "edge-compare",
+      "version": "2026-10-06.modular.1",
+      "title": "Find two kinds of edge",
+      "subtitle": "Where one thing becomes another.",
+      "family": "boundaries",
+      "lens": "edges",
+      "minutes": 5,
+      "settings": [
+        "street",
+        "park",
+        "garden",
+        "water"
+      ],
+      "still": true,
+      "requires": [],
+      "meaning": "Observe the edges and boundaries between ordinary outdoor surfaces from a safe stationary place. Compare a straight border with an uneven border using your eyes. A five minute visual creative contrast, without touching or approaching water.",
+      "tags": [
+        "edge",
+        "boundary",
+        "shapes",
+        "compare"
+      ],
+      "steps": [
+        "Settle in a safe spot, seated or standing, away from traffic and water’s edge. Use only what is already in view. If nothing suitable is visible, stop and choose another note; do not move closer.",
+        "Choose two visible edges where one surface meets another. Compare their shapes: which is straighter, and which has more surprises?",
+        "Look once more without moving closer. Keep one contrast in mind, or bring it back as a sentence. Leave the scene untouched."
+      ],
+      "cues": [
+        "Safe spot",
+        "Compare two",
+        "One contrast"
+      ],
+      "prompt": "Which edge was more orderly, and which surprised you?",
+      "takeaway": "Bring back a sentence about where things meet.",
+      "composition": {
+        "lens": "edges",
+        "action": "compare",
+        "constraint": "safe-one-spot",
+        "trace": "one-line-contrast"
+      },
+      "claimedSourceReviewId": "composition-01",
+      "rationale": "Two visible boundaries give a concrete shape comparison. A contrast sentence records the difference; the same stationary safety rule applies in every setting."
+    },
+    {
+      "id": "edge-follow",
+      "version": "2026-10-06.modular.1",
+      "title": "Follow an edge with your eyes",
+      "subtitle": "A small journey while staying still.",
+      "family": "boundaries",
+      "lens": "edges",
+      "minutes": 5,
+      "settings": [
+        "street",
+        "park",
+        "garden",
+        "water"
+      ],
+      "still": true,
+      "requires": [],
+      "meaning": "Follow a visible edge or boundary with your eyes from a safe stationary outdoor spot. Trace how a line bends, breaks or changes without touching objects or moving toward it. A five minute drawing-inspired observation of ordinary shapes.",
+      "tags": [
+        "edge",
+        "boundary",
+        "shapes",
+        "follow"
+      ],
+      "steps": [
+        "Settle in a safe spot, seated or standing, away from traffic and water’s edge. Use only what is already in view. If nothing suitable is visible, stop and choose another note; do not move closer.",
+        "Choose one visible edge. Follow it with your eyes. Notice one bend, break or change in direction.",
+        "Imagine that change as a tiny drawn mark. Keep it in mind, or describe it in a sentence later. Leave the scene untouched."
+      ],
+      "cues": [
+        "Safe spot",
+        "Follow a line",
+        "One mark"
+      ],
+      "prompt": "What shape would capture the edge you followed?",
+      "takeaway": "Bring back the shape of a line you had overlooked.",
+      "composition": {
+        "lens": "edges",
+        "action": "trace-with-eyes",
+        "constraint": "safe-one-spot",
+        "trace": "one-line-shape"
+      },
+      "claimedSourceReviewId": "composition-02",
+      "rationale": "A single visible boundary supports eye-only tracing. An imagined mark records its bend; this is an alternative in the same boundaries family, not a fresh family."
+    },
+    {
+      "id": "texture-pair",
+      "version": "2026-10-06.modular.1",
+      "title": "Compare two surfaces",
+      "subtitle": "A touch-free texture study.",
+      "family": "surface-pair",
+      "lens": "texture",
+      "minutes": 5,
+      "settings": [
+        "street",
+        "park",
+        "garden",
+        "water"
+      ],
+      "still": true,
+      "requires": [],
+      "meaning": "Notice textures without walking or touching anything. Compare two outdoor surfaces visible from one safe spot, such as paving, a wall or a railing. Study rough and smooth patterns with your eyes. Five minute creative observation without needing plants.",
+      "tags": [
+        "texture",
+        "surface",
+        "pattern",
+        "compare"
+      ],
+      "steps": [
+        "Settle in a safe spot, seated or standing, away from traffic and water’s edge. Use only what is already in view. If nothing suitable is visible, stop and choose another note; do not move closer.",
+        "Choose two surfaces already in view. Compare rough and smooth patterns using only the details you can make out.",
+        "Choose two describing words, one for each surface. Keep them in mind, or write them later. Leave both untouched."
+      ],
+      "cues": [
+        "Safe spot",
+        "Compare two",
+        "Two words"
+      ],
+      "prompt": "What two words describe the surfaces you compared?",
+      "takeaway": "Bring back a pair of words for an ordinary place.",
+      "composition": {
+        "lens": "texture",
+        "action": "compare",
+        "constraint": "safe-one-spot",
+        "trace": "two-words"
+      },
+      "claimedSourceReviewId": "composition-03",
+      "rationale": "Two already-visible surfaces support visual comparison without touching. A pair of words gives each surface a trace; plants and direct light are not prerequisites."
+    },
+    {
+      "id": "texture-trace",
+      "version": "2026-10-06.modular.1",
+      "title": "Follow a surface pattern",
+      "subtitle": "One small line in an ordinary surface.",
+      "family": "surface-pair",
+      "lens": "texture",
+      "minutes": 5,
+      "settings": [
+        "street",
+        "park",
+        "garden",
+        "water"
+      ],
+      "still": true,
+      "requires": [],
+      "meaning": "Follow a visible line in an outdoor surface pattern with your eyes from a safe seated or standing spot. Notice a bend or break in paving, a wall or a railing without touching, walking closer or needing plants. Imagine one tiny mark for a five minute visual texture observation.",
+      "tags": [
+        "texture",
+        "surface",
+        "pattern",
+        "follow"
+      ],
+      "steps": [
+        "Settle in a safe spot, seated or standing, away from traffic and water’s edge. Use only what is already in view. If nothing suitable is visible, stop and choose another note; do not move closer.",
+        "Choose one line in a visible surface pattern. Follow it with your eyes. Notice one bend, break or change in direction.",
+        "Imagine that change as a tiny drawn mark. Keep it in mind, or describe it in a sentence later. Leave the scene untouched."
+      ],
+      "cues": [
+        "Safe spot",
+        "Follow a line",
+        "One mark"
+      ],
+      "prompt": "What bend or break did you notice in the surface pattern?",
+      "takeaway": "Bring back the shape of a line you had overlooked.",
+      "composition": {
+        "lens": "texture",
+        "action": "trace-with-eyes",
+        "constraint": "safe-one-spot",
+        "trace": "one-line-shape"
+      },
+      "claimedSourceReviewId": "composition-04",
+      "rationale": "A line already visible in a surface pattern makes eye-only tracing concrete. It reuses the shape trace and remains in the surface-pair family, so it cannot bypass recent or set-aside surface feedback."
+    }
+  ]
+}

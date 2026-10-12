@@ -1,0 +1,142 @@
+/* Same paper/forest palette; bounded surfaces with no ambient animation. */
+.notebook-collection,
+.compose-preview {
+  margin-block: 20px;
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #f5f7ee;
+  color: var(--ink);
+}
+#collection-summary {
+  font:
+    18px/1.45 Georgia,
+    serif;
+  margin-block: 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+.collection-chips,
+.output-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.collection-chips button {
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 9px 12px;
+  background: #fffdf7;
+  color: #244936;
+  line-height: 1.45;
+}
+.collection-chips button[aria-pressed="true"] {
+  border: 2px solid #315b43;
+  background: #e7eddf;
+}
+.collection-chips button[aria-pressed="true"]::before {
+  content: "✓ ";
+}
+.compose-preview h3 {
+  font:
+    28px/1.2 Georgia,
+    serif;
+  margin-block: 12px;
+}
+.compose-preview ol {
+  padding-left: 24px;
+}
+.compose-preview li {
+  margin-block: 14px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.compose-preview details summary,
+.cache-inventory summary {
+  min-height: 44px;
+  padding-block: 10px;
+  cursor: pointer;
+}
+#compose-receipt {
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.discovery-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  margin-block: 12px;
+}
+.discovery-select input {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  accent-color: #315b43;
+}
+#feedback-choice select,
+#selected-note-text {
+  width: 100%;
+  min-width: 0;
+}
+#selected-note-text {
+  height: min(38vh, 340px);
+  font-size: 16px;
+  line-height: 1.6;
+  resize: vertical;
+}
+#feedback-scope {
+  padding: 16px;
+  border-left: 3px solid #6b8d70;
+  background: #f5f7ee;
+  line-height: 1.65;
+}
+#selected-notes-status,
+#family-view-label,
+#selected-output-status,
+#cache-inventory-status {
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+#selected-notes-dialog .output-actions button,
+#feedback-choice button,
+#note-selection-tools button {
+  min-height: 44px;
+  white-space: normal;
+}
+@media (max-width: 420px) {
+  .collection-chips button {
+    flex: 1 1 120px;
+  }
+  .notebook-filters {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .notebook-filters > label {
+    min-width: 0;
+  }
+  .notebook-filters select,
+  .notebook-filters input {
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+  .output-actions > button {
+    flex: 1 1 130px;
+  }
+}
+@media print {
+  .printed-discovery h1 {
+    font-size: 18pt;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+  .printed-discovery {
+    overflow-wrap: anywhere;
+  }
+}

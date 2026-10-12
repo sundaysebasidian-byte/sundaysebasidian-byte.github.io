@@ -1,0 +1,50 @@
+{
+  "format": "pocket-field-trip-notebook",
+  "version": 1,
+  "exportedAt": "2026-10-06T19:11:24.895Z",
+  "journal": {
+    "schema": 1,
+    "entries": [
+      {
+        "id": "5d451ab3-beff-45a8-bb01-82723c802fa2",
+        "text": "Independent fixture: the smooth boundary met a ragged patch.",
+        "tags": [],
+        "task": {
+          "id": "edge-compare",
+          "title": "Find two kinds of edge",
+          "family": "boundaries",
+          "lens": "edges",
+          "version": "2026-10-06.2",
+          "steps": [
+            "Stop away from traffic and water’s edge. Find two visible edges where one surface meets another.",
+            "Compare their shapes: which is straighter, and which has more surprises?",
+            "Look once more without moving closer. Keep one contrast in mind."
+          ],
+          "cues": [
+            "Safe spot",
+            "Two edges",
+            "One contrast"
+          ],
+          "prompt": "Which edge was more orderly, and which surprised you?",
+          "minutes": 5,
+          "settings": [
+            "street",
+            "park",
+            "garden",
+            "water"
+          ],
+          "still": true,
+          "requires": []
+        },
+        "createdAt": "2026-10-06T19:11:24.824Z",
+        "updatedAt": "2026-10-06T19:11:24.824Z"
+      }
+    ],
+    "feedback": {
+      "done": [
+        "edge-compare"
+      ],
+      "skipped": []
+    }
+  }
+}

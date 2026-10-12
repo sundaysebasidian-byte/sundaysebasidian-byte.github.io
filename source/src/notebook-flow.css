@@ -1,0 +1,68 @@
+/* Keep the primary search beside its results, even in a full notebook. */
+#notebook > .local-search {
+  margin: 18px 0 8px;
+}
+.notebook-tools {
+  margin: 8px 0 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+.notebook-tools > summary {
+  display: list-item;
+  min-height: 44px;
+  padding: 10px 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font:
+    600 16px/24px system-ui,
+    sans-serif;
+}
+.notebook-tools > summary:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.notebook-tools .notebook-filters {
+  margin-top: 12px;
+}
+#notebook-filter-status {
+  margin: 10px 0;
+}
+#notebook-status:empty {
+  display: none;
+}
+#undo-discovery {
+  margin-bottom: 14px;
+}
+#notebook-tools-jump {
+  margin: 2px 0 14px;
+}
+.notebook-backup {
+  margin: 8px 0 12px;
+  padding: 0 0 8px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.notebook-backup > summary {
+  display: list-item;
+  min-height: 44px;
+  padding: 10px 4px;
+  box-sizing: border-box;
+  font:
+    600 16px/24px system-ui,
+    sans-serif;
+}
+.notebook-draft {
+  padding: 14px;
+  margin: 14px 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.notebook-draft p {
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+.notebook-draft button {
+  min-height: 44px;
+}
